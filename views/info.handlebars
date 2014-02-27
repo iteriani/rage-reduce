@@ -168,7 +168,7 @@ $(document).ready(function(){
         <tr><td data-bind="text : day"></td><td data-bind="text : time"></td></tr>
       </tbody>
     </table>
-    <span class="label label-primary">Discussion Times</span>
+    <h4>Discussion Times</h4>
     <table class="table" data-bind="if : _class().info.discussion_time">
       <thead><tr>
         <td>Day</td> <td>Hour</td>
@@ -177,7 +177,7 @@ $(document).ready(function(){
         <tr><td data-bind="text : day"></td><td data-bind="text : time"></td></tr>
       </tbody>
     </table>
-    <span class="label label-primary">Prerequisites</span>
+    <h4>Prerequisites</h4>
       <ul class="list-group">
          <li class="list-group-item">CSE 100</li>
          <li class="list-group-item">CSE 105</li>
@@ -185,11 +185,8 @@ $(document).ready(function(){
    </div>
 
   <div class="tab-pane" id="feed">
-    <div class="row">
-      <div class="col-md-6">
-        <div data-bind="gradechart : ''"></div>
-      </div>
 
+        <div data-bind="gradechart : ''"></div>
   </div>
 
  </div>
