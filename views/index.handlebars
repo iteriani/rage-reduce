@@ -68,14 +68,14 @@
           <table class="table table-striped table-condensed">
             <tbody data-bind="foreach : searchClasses()">
               <tr>
-                <td> <span data-bind="text : name"></span></td>
+                <td> <span data-bind="text : name, info : $data"></span></td>
               </tr>
               <tr>
                 <td data-bind="css : {'warning' : enrollment() >= max_enrollment-49}, text :'Enrollments : ' +  enrollment() + '/' + max_enrollment"></td>
               </tr>
               <tr>
                 <td>
-                  <button data-bind="info : $data" class="btn btn-info"> INFO </button>                        
+                                       
                   <button class="btn btn-success"   
                   data-bind="toggle : $data, text : followed()? 'Unfollow' : 'Follow'" >
                   </button>
@@ -90,9 +90,9 @@
       <div class="modal-body" data-bind="foreach : Object.keys(groupedClasses()), visible:searchQuery().length == 0">
         <div class="panel-group" id="accordion">
           <div class="panel panel-default">
-            <div class="panel-heading">
+            <div class="panel-heading" style="cursor : pointer; " data-toggle="collapse" data-bind="attr : {href : '#'+$data.slice(0,4)}" data-parent="#accordion" >
               <h4 class="panel-title">
-                <a data-toggle="collapse" data-bind="text : $data, attr : {href : '#'+$data.slice(0,4)}" data-parent="#accordion" >
+                <a  data-bind="text : $data">
                 </a>
               </h4>
             </div>
@@ -102,7 +102,7 @@
                 <table class="table table-striped table-condensed">
                   <tbody data-bind="foreach : $parent.groupedClasses()[$data]">
                     <tr>
-                      <td> <span data-bind="text : name"></span></td>
+                      <td> <span style="cursor:pointer;" data-bind="text : name,info:$data"></span></td>
                     </tr>
                     <tr>
                       <td data-bind="css : {'warning' : enrollment() >= max_enrollment-5}, text :'Enrollments : ' +  enrollment() + '/' + max_enrollment"></td>
@@ -141,7 +141,7 @@
           <ul class="nav navbar-nav navbar-right">
             {{#if notloggedin}}
             <li><button class="btn btn-default" style="margin-top:5px;" data-toggle="modal" data-target="#login">Login</button>
-             <button class="btn btn-default"  style="margin-top:5px;" onclick="window.open('/signup');" >Sign up</button>
+             <button class="btn btn-default"  style="margin-top:5px;" onclick="location.href = ('/signup');" >Sign up</button>
            </li>
            {{/if}}
            {{#if loggedin}}
