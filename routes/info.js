@@ -7,5 +7,7 @@ exports.viewInfo = function(req, res){
 		sendInfo.loggedin = false;
 		sendInfo.notloggedin = true;
 	}
-	res.render('info', sendInfo);
+	
+		res.render('info', sendInfo);
+	
 }

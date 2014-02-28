@@ -10,7 +10,12 @@ function IndexViewModel(repository, element){
 			self.logout();
 		},
 		getInfo : function(model){
-			 location.href = "/info?id="+model.id;
+			 var num = Math.random()*100;
+			 if(num < 50){
+				 location.href = "/info?id="+model.id;
+			}else{
+				location.href="/info/b?id="+model.id;
+			}
 		}
 	});
 
