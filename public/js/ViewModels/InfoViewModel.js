@@ -7,9 +7,12 @@ function getID(){
 
 function getView(){
 		var url = document.URL.split("?");
-		var urlParam = url[1];
-		var id = urlParam.split("view=")[1];
-		return id;
+		console.log(url);
+		if(url[0].indexOf("/b")>= 0){
+			return "b";
+		}else{
+			return "a";
+		}
 }
 
 function InfoViewModel(repository, element, enrollmentService){
@@ -48,7 +51,7 @@ function InfoViewModel(repository, element, enrollmentService){
 
 		ko.bindingHandlers.gradechart = {
 			init : function(element, valueAccessor){
-				GenerateChart(element, _class);
+				GenerateChart(element, _class, getView());
 			}
 		}
 
@@ -80,7 +83,7 @@ function InfoViewModel(repository, element, enrollmentService){
 			}
 			x_Axis = ["Freshmen", "Sophomore", "Junior",'Senior', "Senior+"]
 
-			generateBarChart(element, returner, "Year", x_Axis);
+			generateBarChart(element, returner, "Year", x_Axis, getView());
 		}
 	}
 
@@ -103,7 +106,7 @@ function InfoViewModel(repository, element, enrollmentService){
 			for(var i = 0; i < x_Axis.length; i++){
 				returner.push(total[x_Axis[i]]);
 			}
-			generateBarChart(element, returner, "Major", x_Axis);
+			generateBarChart(element, returner, "Major", x_Axis, getView());
 		}
 	}
 

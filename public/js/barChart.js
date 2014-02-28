@@ -1,16 +1,19 @@
 
-function generateBarChart(element, data, type, x_axis){
+function generateBarChart(element, data, type, x_axis, expType){
     var realData = [];
     var sum = data.reduce(function(prev, curr){ return prev + curr;});
     for(var i = 0; i < x_axis.length; i++){
         realData.push([x_axis[i], data[i]/sum]);
     }
+    var opts = {
+                type: 'pie'
+            };
+    if(expType == "a"){
+        opts.width=300;
+        opts.height=300;
+    }
     $(element).highcharts({
-            chart: {
-                type: 'pie',
-                width: 300,
-                height:300
-            },
+            chart: opts,
             title: {
                 text: "Percentage of students' "+ type
             },

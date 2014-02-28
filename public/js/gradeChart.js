@@ -2,7 +2,7 @@ function AddPoint(series, arr){
     series.addPoint(arr, true,true);
 }
 
-function GenerateChart(element, _class){
+function GenerateChart(element, _class, expType){
 
         Highcharts.setOptions({
             global: {
@@ -15,11 +15,8 @@ function GenerateChart(element, _class){
 
         var chart;
         var series = null;
-        $(element).highcharts({
-            chart: {
+        var opts = {
                 type: 'spline',
-                width: 300,
-                height:300,
                 animation: Highcharts.svg, // don't animate in old IE
                 marginRight: 10,
                 events: {
@@ -40,7 +37,13 @@ function GenerateChart(element, _class){
                         });
                     }
                 }
-            },
+            };
+        if(expType =="a"){
+            opts.width=300;
+            opts.height=300;
+        }
+        $(element).highcharts({
+            chart: opts,
             title: {
                 text: 'Enrollments'
             },
