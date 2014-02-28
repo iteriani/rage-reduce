@@ -11,7 +11,7 @@ function IndexViewModel(repository, element){
 		},
 		getInfo : function(model){
 			 var num = Math.random()*100;
-			 if(num < 50){
+			 if(num > 50){
 				 location.href = "/info?id="+model.id;
 			}else{
 				location.href="/info/b?id="+model.id;
