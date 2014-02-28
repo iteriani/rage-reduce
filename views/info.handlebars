@@ -37,7 +37,7 @@ $(document).ready(function(){
 
 {{> header}}
 
-<!-- MODAL -->
+<!-- LOGIN MODAL -->
 <div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -56,11 +56,11 @@ $(document).ready(function(){
 
 <form class="form-inline" role="form" method="POST" action = "/login">
   <div class="form-group">
-    <label class="sr-only" for="exampleInputEmail2">PID</label>
+    <label class="sr-only" for="exampleInputEmail2">Username</label>
     <input type="text" name="pid" class="form-control" id="exampleInputEmail2" placeholder="Enter PID">
   </div>
   <div class="form-group">
-    <label class="sr-only" for="exampleInputPassword2">password</label>
+    <label class="sr-only" for="exampleInputPassword2">Password</label>
     <input type="password" name="password" class="form-control" id="exampleInputPassword2" placeholder="Password">
   </div>
 
@@ -105,64 +105,61 @@ $(document).ready(function(){
 
   <div class="tab-content">
   <div class="tab-pane" id ="cape">
- <table data-bind="if: view == 'b'" class="table table-bordered table-striped table-condensed table-responsive">
-      <thead>
-        <tr class="h5">
-          <td>Instructor</td>
-          <td>Course</td>
-          <td>Term</td>
-          <td>Enroll</td>
-          <td>Evals Made</td>
-          <td>Rcmnd Class</td>
-          <td>Rcmnd Instr</td>
-          <td>Study Hrs/wk</td>
-          <td>Avg Grade Expected</td>
-          <td>Avg Grade Received</td>
-        </tr>
-      </thead>
-      <tbody data-bind="foreach: _class().info.cape_review">
-        <tr data-bind="foreach: {data : $data, as : 'item'}">
-          <td data-bind="text : item"></td>
-        </tr>
-      </tbody>
-    </table>
-  <table data-bind="if : view != 'b'"   class="table table-bordered table-striped table-condensed table-responsive">
-      <thead>
-        <tr class="h5">
-          <td>Instructor</td>
-          <td>Rcmnd Class</td>
-          <td>Rcmnd Instr</td>
-          <td>Study Hrs/wk</td>
-          <td>Avg Grade Received</td>
-        </tr>
-      </thead>
-      <tbody data-bind="foreach: _class().info.cape_review">
-        <tr>
-          <td data-bind="text : $data[0]"></td>
-          <td data-bind="text : $data[5]"></td>
-          <td data-bind="text : $data[6]"></td>
-          <td data-bind="text : $data[7]"></td>
-          <td data-bind="text : $data[9]"></td>
-        </tr>
-      </tbody>
-    </table>
+    <!-- Condition A: Condensed CAPE reviews -->
+    <table data-bind="if : view != 'b'"   class="table table-bordered table-striped table-condensed table-responsive">
+        <thead>
+          <tr class="h5">
+            <td>Instructor</td>
+            <td>Rcmnd Class</td>
+            <td>Rcmnd Instr</td>
+            <td>Study Hrs/wk</td>
+            <td>Avg Grade Received</td>
+          </tr>
+        </thead>
+        <tbody data-bind="foreach: _class().info.cape_review">
+          <tr>
+            <td data-bind="text : $data[0]"></td>
+            <td data-bind="text : $data[5]"></td>
+            <td data-bind="text : $data[6]"></td>
+            <td data-bind="text : $data[7]"></td>
+            <td data-bind="text : $data[9]"></td>
+          </tr>
+        </tbody>
+      </table>
+      <!-- Condition B: Full CAPE reviews -->
+      <table data-bind="if: view == 'b'" class="table table-bordered table-striped table-condensed table-responsive">
+        <thead>
+          <tr class="h5">
+            <td>Instructor</td>
+            <td>Course</td>
+            <td>Term</td>
+            <td>Enroll</td>
+            <td>Evals Made</td>
+            <td>Rcmnd Class</td>
+            <td>Rcmnd Instr</td>
+            <td>Study Hrs/wk</td>
+            <td>Avg Grade Expected</td>
+            <td>Avg Grade Received</td>
+          </tr>
+        </thead>
+        <tbody data-bind="foreach: _class().info.cape_review">
+          <tr data-bind="foreach: {data : $data, as : 'item'}">
+            <td data-bind="text : item"></td>
+          </tr>
+        </tbody>
+      </table>
   </div>
+
   <div class="tab-pane" id="enrollment">
     <div class="row">
-
-
       <div class="col-md-6">
       <div data-bind="barChartYear : _class().enrollment"></div>
     </div>
-
     <div class="col-md-6">
-
       <div data-bind="barChartMajor : _class().enrollment"></div>
     </div>
-
   </div>
   </div>
-
 
   <div class="tab-pane active" id="info">
    <h5>Lecture Times</h5>
@@ -196,6 +193,19 @@ $(document).ready(function(){
   </div>
 
  </div>
+
+<!-- Google Analytics script -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-48449850-2', 'webregpro.herokuapp.com');
+  ga('send', 'pageview');
+</script>
+<!-- end Google Analytics script -->
+
 
 </body>
 
