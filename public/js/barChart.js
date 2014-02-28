@@ -17,6 +17,9 @@ function generateBarChart(element, data, type, x_axis){
             subtitle: {
                 text: 'Source: UCSD'
             },
+        tooltip: {
+            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+        },
             yAxis: {
                 min: 0,
                 title: {
