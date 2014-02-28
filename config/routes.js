@@ -7,7 +7,7 @@ var classes = require("../controllers/classes.js");
 // Add routes here
 app.get('/', index.view);
 app.get("/info", info.viewInfo);
-app.get("/info/b", info.viewInfo);
+app.get("/info/b", info.viewInfob);
 
 app.get("/signup", function(req,res){
 	res.render("signup");
