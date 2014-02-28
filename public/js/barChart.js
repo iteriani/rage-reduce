@@ -7,7 +7,7 @@ function generateBarChart(element, data, type, x_axis){
     }
     $(element).highcharts({
             chart: {
-                type: 'pie'
+                type: 'pie',
             },
             title: {
                 text: "Percentage of students' "+ type
@@ -32,4 +32,5 @@ function generateBarChart(element, data, type, x_axis){
                 data : realData
             }]
         });
+    $(window).resize();
 }

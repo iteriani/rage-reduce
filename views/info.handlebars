@@ -120,7 +120,28 @@ $(document).ready(function(){
 
   <div class="tab-content">
   <div class="tab-pane" id ="cape">
-  <table class="table table-bordered table-striped table-condensed table-responsive">
+ <table data-bind="if: view == 'b'" class="table table-bordered table-striped table-condensed table-responsive">
+      <thead>
+        <tr class="h5">
+          <td>Instructor</td>
+          <td>Course</td>
+          <td>Term</td>
+          <td>Enroll</td>
+          <td>Evals Made</td>
+          <td>Rcmnd Class</td>
+          <td>Rcmnd Instr</td>
+          <td>Study Hrs/wk</td>
+          <td>Avg Grade Expected</td>
+          <td>Avg Grade Received</td>
+        </tr>
+      </thead>
+      <tbody data-bind="foreach: _class().info.cape_review">
+        <tr data-bind="foreach: {data : $data, as : 'item'}">
+          <td data-bind="text : item"></td>
+        </tr>
+      </tbody>
+    </table>
+  <table data-bind="if : view == 'a'"   class="table table-bordered table-striped table-condensed table-responsive">
       <thead>
         <tr class="h5">
           <td>Instructor</td>

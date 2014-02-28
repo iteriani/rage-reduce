@@ -1,7 +1,14 @@
 function getID(){
 		var url = document.URL.split("?");
 		var urlParam = url[1];
-		var id = parseInt(urlParam.split("=")[1]);
+		var id = parseInt(urlParam.split("=")[1].split("&")[0]);
+		return id;
+}
+
+function getView(){
+		var url = document.URL.split("?");
+		var urlParam = url[1];
+		var id = urlParam.split("view=")[1];
 		return id;
 }
 
@@ -15,6 +22,7 @@ function InfoViewModel(repository, element, enrollmentService){
 		messages : ko.observableArray([]),
 		schedule : ko.observable(),
 		currentMessage : ko.observable(),
+		view : getView(),
 		logout : function(){
 			self.enrollmentService.logout();
 		}
