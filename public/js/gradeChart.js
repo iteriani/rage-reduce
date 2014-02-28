@@ -18,6 +18,8 @@ function GenerateChart(element, _class){
         $(element).highcharts({
             chart: {
                 type: 'spline',
+                                width:$(window).width()*.5,
+                height:$(window).height()*5,
                 animation: Highcharts.svg, // don't animate in old IE
                 marginRight: 10,
                 events: {
