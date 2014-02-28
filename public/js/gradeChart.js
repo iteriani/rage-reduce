@@ -90,5 +90,5 @@ function GenerateChart(element, _class){
                 })()
             }]
         });
-    $(window).resize();
+    $(window).trigger( "resize" )
 }

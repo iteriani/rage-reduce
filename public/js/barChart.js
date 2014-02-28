@@ -32,5 +32,5 @@ function generateBarChart(element, data, type, x_axis){
                 data : realData
             }]
         });
-    $(window).resize();
+   $(window).trigger( "resize" )
 }
