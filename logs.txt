@@ -1,0 +1,102 @@
+2014-02-28T16:45:34.448681+00:00 app[web.1]: debug: cleared close timeout for client P_WqSaE5ak2tkvJYXJWu
+2014-02-28T16:45:34.448817+00:00 app[web.1]: debug: cleared heartbeat interval for client P_WqSaE5ak2tkvJYXJWu
+2014-02-28T16:45:34.751404+00:00 heroku[router]: at=info method=GET path=/js/socket.io/dist/socket.io.js host=webreg-pro.herokuapp.com request_id=54b1a49f-dd06-4d92-8e2b-5353cb451a0a fwd="108.216.108.237" dyno=web.1 connect=4ms service=5ms status=304 bytes=240
+2014-02-28T16:45:34.448957+00:00 app[web.1]: debug: discarding transport
+2014-02-28T16:45:34.720138+00:00 app[web.1]: [90mGET /js/bootstrap.min.js [36m304 [90m2ms[0m
+2014-02-28T16:45:34.734363+00:00 app[web.1]: [90mGET /js/gradeChart.js [36m304 [90m2ms[0m
+2014-02-28T16:45:34.730577+00:00 app[web.1]: [90mGET /js/knockout.js [36m304 [90m1ms[0m
+2014-02-28T16:45:34.840802+00:00 heroku[router]: at=info method=GET path=/js/ViewModels/IndexViewModel.js host=webreg-pro.herokuapp.com request_id=2869403b-fbe9-4656-9649-1d71adca7721 fwd="108.216.108.237" dyno=web.1 connect=19ms service=20ms status=304 bytes=238
+2014-02-28T16:45:34.966099+00:00 heroku[router]: at=info method=GET path=/js/ViewModels/InfoViewModel.js host=webreg-pro.herokuapp.com request_id=c130c390-2f96-40ab-ac77-c79187028131 fwd="108.216.108.237" dyno=web.1 connect=1ms service=7ms status=304 bytes=238
+2014-02-28T16:45:34.968632+00:00 heroku[router]: at=info method=GET path=/js/Models/IndexModel.js host=webreg-pro.herokuapp.com request_id=1d445868-24fe-41ab-9dc1-9dcc46f2a6ff fwd="108.216.108.237" dyno=web.1 connect=7ms service=8ms status=304 bytes=238
+2014-02-28T16:45:34.966679+00:00 app[web.1]: [90mGET /js/ViewModels/InfoViewModel.js [36m304 [90m4ms[0m
+2014-02-28T16:45:34.967332+00:00 app[web.1]: [90mGET /js/Models/IndexModel.js [36m304 [90m4ms[0m
+2014-02-28T16:45:34.750004+00:00 app[web.1]: [90mGET /js/socket.io/dist/socket.io.js [36m304 [90m1ms[0m
+2014-02-28T16:45:34.825335+00:00 app[web.1]: [90mGET /js/ViewModels/IndexViewModel.js [36m304 [90m2ms[0m
+2014-02-28T16:45:34.821222+00:00 app[web.1]: [90mGET /css/introHCI.css [36m304 [90m2ms[0m
+2014-02-28T16:45:34.968007+00:00 app[web.1]: [90mGET /js/Models/InfoModel.js [36m304 [90m3ms[0m
+2014-02-28T16:45:35.053545+00:00 app[web.1]: [90mGET /js/barChart.js [36m304 [90m2ms[0m
+2014-02-28T16:45:35.399758+00:00 heroku[router]: at=info method=GET path=/classes/11 host=webreg-pro.herokuapp.com request_id=aaa34005-1ed9-428d-8ba1-94c563bafc6a fwd="108.216.108.237" dyno=web.1 connect=11ms service=51ms status=200 bytes=3914
+2014-02-28T16:45:07.858770+00:00 heroku[router]: at=info method=GET path=/js/Models/IndexModel.js host=webreg-pro.herokuapp.com request_id=721f25df-3ada-4429-a128-c0a7afd12e4b fwd="108.216.108.237" dyno=web.1 connect=4ms service=10ms status=304 bytes=238
+2014-02-28T16:45:35.413556+00:00 heroku[router]: at=info method=GET path=/socket.io/1/?t=1393605934446 host=webreg-pro.herokuapp.com request_id=701e7c1c-27be-4efe-b1a2-d672cc9b19a9 fwd="108.216.108.237" dyno=web.1 connect=22ms service=20ms status=200 bytes=211
+2014-02-28T16:45:35.386357+0
+0:00 app[web.1]: [90mGET /classes/11 [32m200 [90m36ms[0m
+2014-02-28T16:45:34.829739+00:00 heroku[router]: at=info method=GET path=/css/introHCI.css host=webreg-pro.herokuapp.com request_id=b629fce8-beb1-4f13-b057-78ebb675670f fwd="108.216.108.237" dyno=web.1 connect=39ms service=86ms status=304 bytes=237
+2014-02-28T16:45:35.399722+00:00 app[web.1]: info: handshake authorized r43i8L5dlZ8TxglLXJWv
+2014-02-28T16:45:35.398814+00:00 app[web.1]: debug: client authorized
+2014-02-28T16:44:26.049759+00:00 heroku[router]: at=info method=GET path=/js/socket.io/dist/socket.io.js host=webreg-pro.herokuapp.com request_id=3667a198-bb4f-40f7-82f2-9ff1a12aac2e fwd="108.216.108.237" dyno=web.1 connect=2ms service=22ms status=304 bytes=240
+2014-02-28T16:45:36.520307+00:00 app[web.1]: debug: setting request GET /socket.io/1/websocket/r43i8L5dlZ8TxglLXJWv
+2014-02-28T16:45:36.521963+00:00 app[web.1]: debug: client authorized for 
+2014-02-28T16:45:36.520769+00:00 app[web.1]: debug: set heartbeat interval for client r43i8L5dlZ8TxglLXJWv
+2014-02-28T16:45:36.522396+00:00 app[web.1]: debug: websocket writing 1::
+2014-02-28T16:45:07.850734+00:00 heroku[router]: at=info method=GET path=/js/gradeChart.js host=webreg-pro.herokuapp.com request_id=df7962fc-03ee-4694-afbe-41c3485d2d61 fwd="108.216.108.237" dyno=web.1 connect=1ms service=6ms status=304 bytes=238
+2014-02-28T16:45:00.381255+00:00 heroku[router]: at=info method=GET path=/socket.io/1/?t=1393605899533 host=webreg-pro.herokuapp.com request_id=cc84c97c-3256-4254-9160-82c47c42944d fwd="108.216.108.237" dyno=web.1 connect=1ms service=4ms status=200 bytes=211
+2014-02-28T16:45:53.711764+00:00 app[web.1]: debug: emitting heartbeat for client 1Z4A3jl8h4snlsk8XJWf
+2014-02-28T16:45:53.795948+00:00 app[web.1]: debug: cleared heartbeat timeout for client 1Z4A3jl8h4snlsk8XJWf
+2014-02-28T16:45:53.796103+00:00 app[web.1]: debug: set heartbeat interval for client 1Z4A3jl8h4snlsk8XJWf
+2014-02-28T16:45:53.712669+00:00 app[web.1]: debug: websocket writing 2::
+2014-02-28T16:45:53.795226+00:00 app[web.1]: debug: got heartbeat packet
+2014-02-28T16:45:53.713038+00:00 app[web.1]: debug: set heartbeat timeout for client 1Z4A3jl8h4snlsk8XJWf
+2014-02-28T16:45:54.337617+00:00 app[web.1]: debug: emitting heartbeat for client UlB38eQaK6D2MnG3XJWg
+2014-02-28T16:45:54.337966+00:00 app[web.1]: debug: websocket writing 2::
+2014-02-28T16:45:54.456311+00:00 app[web.1]: debug: set heartbeat interval for client UlB38eQaK6D2MnG3XJWg
+2014-02-28T16:45:54.454390+00:00 app[web.1]: debug: got heartbeat packet
+2014-02-28T16:45:54.454390+00:00 app[web.1]: debug: cleared heartbeat timeout for client UlB38eQaK6D2MnG3XJWg
+2014-02-28T16:45:54.338259+00:00 app[web.1]: debug: set heartbeat timeout for client UlB38eQaK6D2MnG3XJWg
+2014-02-28T16:45:00.465923+00:00 heroku[router]: at=info method=GET path=/classes/11 host=webreg-pro.herokuapp.com request_id=26d5922a-6456-4925-a5f1-eaff63e1f7aa fwd="108.216.108.237" dyno=web.1 connect=1ms service=81ms status=200 bytes=3914
+2014-02-28T16:45:55.661892+00:00 app[web.1]: debug: emitting heartbeat for client LIzkWXfNhyd_zM07XJWj
+2014-02-28T16:45:55.662974+00:00 app[web.1]: debug: websocket writing 2::
+2014-02-28T16:45:55.663249+00:00 app[web.1]: debug: set heartbeat timeout for client LIzkWXfNhyd_zM07XJWj
+2014-02-28T16:45:55.791004+00:00 app[web.1]: debug: emitting heartbeat for client RjASP_v9Zft7_0FXXJWh
+2014-02-28T16:45:55.791350+00:00 app[web.1]: debug: set heartbeat timeout for client RjASP_v9Zft7_0FXXJWh
+2014-02-28T16:45:55.791284+00:00 app[web.1]: debug: websocket writing 2::
+2014-02-28T16:45:55.857030+00:00 app[web.1]: debug: websocket writing 2::
+2014-02-28T16:45:55.856820+00:00 app[web.1]: debug: emitting heartbeat for client PenRk7wakPHDU_AlXJWm
+2014-02-28T16:45:55.857072+00:00 app[web.1]: debug: set heartbeat timeout for client PenRk7wakPHDU_AlXJWm
+2014-02-28T16:45:55.910654+00:00 app[web.1]: debug: got heartbeat packet
+2014-02-28T16:45:55.910927+00:00 app[web.1]: debug: cleared heartbeat timeout for client LIzkWXfNhyd_zM07XJWj
+2014-02-28T16:45:55.975201+00:00 app[web.1]: debug: set heartbeat interval for client PenRk7wakPHDU_AlXJWm
+2014-02-28T16:45:55.948699+00:00 app[web.1]: debug: set heartbeat interval for client RjASP_v9Zft7_0FXXJWh
+2014-02-28T16:45:55.947731+00:00 app[web.1]: debug: got heartbeat packet
+2014-02-28T16:45:55.969510+00:00 app[web.1]: debug: got heartbeat packet
+2014-02-28T16:45:55.948495+00:00 app[web.1]: debug: cleared heartbeat timeout for client RjASP_v9Zft7_0FXXJWh
+2014-02-28T16:45:55.911176+00:00 app[web.1]: debug: set heartbeat interval for client LIzkWXfNhyd_zM07XJWj
+2014-02-28T16:45:55.975101+00:00 app[web.1]: debug: cleared heartbeat timeout for client PenRk7wakPHDU_AlXJWm
+2014-02-28T16:46:01.528006+00:00 app[web.1]: debug: emitting heartbeat for client r43i8L5dlZ8TxglLXJWv
+2014-02-28T16:46:01.528300+00:00 app[web.1]: debug: websocket writing 2::
+2014-02-28T16:46:01.528420+00:00 app[web.1]: debug: set heartbeat timeout for client r43i8L5dlZ8TxglLXJWv
+2014-02-28T16:46:01.621823+00:00 app[web.1]: debug: got heartbeat packet
+2014-02-28T16:46:01.621935+00:00 app[web.1]: debug: set heartbeat interval for client r43i8L5dlZ8TxglLXJWv
+2014-02-28T16:46:01.621823+00:00 app[web.1]: debug: cleared heartbeat timeout for client r43i8L5dlZ8TxglLXJWv
+2014-02-28T16:45:34.967886+00:00 heroku[router]: at=info method=GET path=/js/Models/InfoModel.js host=webreg-pro.herokuapp.com request_id=417c2b7d-a524-4f91-9bc4-ecab92514149 fwd="108.216.108.237" dyno=web.1 connect=1ms service=9ms status=304 bytes=237
+2014-02-28T16:45:35.063794+00:00 heroku[router]: at=info method=GET path=/js/barChart.js host=webreg-pro.herokuapp.com request_id=4528e43c-e48d-482c-a6fe-879f4da2ac7b fwd="108.216.108.237" dyno=web.1 connect=21ms service=19ms status=304 bytes=238
+2014-02-28T16:45:00.117380+00:00 heroku[router]: at=info method=GET path=/js/Models/InfoModel.js host=webreg-pro.herokuapp.com request_id=8af1bec4-66ec-4925-b89d-fa33228a4dce fwd="108.216.108.237" dyno=web.1 connect=3ms service=6ms status=304 bytes=237
+2014-02-28T16:46:18.801732+00:00 app[web.1]: debug: emitting heartbeat for client 1Z4A3jl8h4snlsk8XJWf
+2014-02-28T16:46:18.802019+00:00 app[web.1]: debug: websocket writing 2::
+2014-02-28T16:46:18.918525+00:00 app[web.1]: debug: got heartbeat packet
+2014-02-28T16:46:18.919573+00:00 app[web.1]: debug: cleared heartbeat timeout for client 1Z4A3jl8h4snlsk8XJWf
+2014-02-28T16:46:18.802383+00:00 app[web.1]: debug: set heartbeat timeout for client 1Z4A3jl8h4snlsk8XJWf
+2014-02-28T16:46:18.919723+00:00 app[web.1]: debug: set heartbeat interval for client 1Z4A3jl8h4snlsk8XJWf
+2014-02-28T16:46:19.459638+00:00 app[web.1]: debug: set heartbeat timeout for client UlB38eQaK6D2MnG3XJWg
+2014-02-28T16:46:19.459185+00:00 app[web.1]: debug: emitting heartbeat for client UlB38eQaK6D2MnG3XJWg
+2014-02-28T16:46:19.459484+00:00 app[web.1]: debug: websocket writing 2::
+2014-02-28T16:46:19.545669+00:00 app[web.1]: debug: got heartbeat packet
+2014-02-28T16:46:19.545813+00:00 app[web.1]: debug: cleared heartbeat timeout for client UlB38eQaK6D2MnG3XJWg
+2014-02-28T16:46:19.545980+00:00 app[web.1]: debug: set heartbeat interval for client UlB38eQaK6D2MnG3XJWg
+2014-02-28T16:46:20.911806+00:00 app[web.1]: debug: emitting heartbeat for client LIzkWXfNhyd_zM07XJWj
+2014-02-28T16:46:20.915077+00:00 app[web.1]: debug: websocket writing 2::
+2014-02-28T16:46:20.976325+00:00 app[web.1]: debug: emitting heartbeat for client PenRk7wakPHDU_AlXJWm
+2014-02-28T16:46:20.915182+00:00 app[web.1]: debug: set heartbeat timeout for client LIzkWXfNhyd_zM07XJWj
+2014-02-28T16:46:20.952802+00:00 app[web.1]: debug: websocket writing 2::
+2014-02-28T16:46:20.952569+00:00 app[web.1]: debug: emitting heartbeat for client RjASP_v9Zft7_0FXXJWh
+2014-02-28T16:46:20.976638+00:00 app[web.1]: debug: websocket writing 2::
+2014-02-28T16:46:20.976732+00:00 app[web.1]: debug: set heartbeat timeout for client PenRk7wakPHDU_AlXJWm
+2014-02-28T16:46:20.952895+00:00 app[web.1]: debug: set heartbeat timeout for client RjASP_v9Zft7_0FXXJWh
+2014-02-28T16:46:21.037481+00:00 app[web.1]: debug: got heartbeat packet
+2014-02-28T16:46:21.038239+00:00 app[web.1]: debug: set heartbeat interval for client RjASP_v9Zft7_0FXXJWh
+2014-02-28T16:46:21.041615+00:00 app[web.1]: debug: set heartbeat interval for client LIzkWXfNhyd_zM07XJWj
+2014-02-28T16:46:21.041269+00:00 app[web.1]: debug: cleared heartbeat timeout for client LIzkWXfNhyd_zM07XJWj
+2014-02-28T16:46:21.037481+00:00 app[web.1]: debug: cleared heartbeat timeout for client RjASP_v9Zft7_0FXXJWh
+2014-02-28T16:46:21.098250+00:00 app[web.1]: debug: cleared heartbeat timeout for client PenRk7wakPHDU_AlXJWm
+2014-02-28T16:46:21.041269+00:00 app[web.1]: debug: got heartbeat packet
+2014-02-28T16:46:21.097977+00:00 app[web.1]: debug: got heartbeat packet
+2014-02-28T16:46:21.098559+00:00 app[web.1]: debug: set heartbeat interval for client PenRk7wakPHDU_AlXJWm
