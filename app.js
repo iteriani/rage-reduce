@@ -15,6 +15,7 @@ var db = mongoose.connect(config.db);
 var fs = require("fs");
 var classes = []; 					// temporary
 var schedules = null;
+var A = true;
 
 
 
