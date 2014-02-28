@@ -5,9 +5,8 @@
 	<title>WebReg Pro by Yellow Fellows</title>	
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
   
-  <link href="/css/introHCI.css" rel="stylesheet">
   <!-- this is a comment in HTML -->
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -48,6 +47,8 @@
     });
     </script>
     <body class="container" id="container">
+
+      {{> header}}
 
 <!-- MODAL VIEW FOR FOLLOWING CLASSES -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -131,25 +132,8 @@
 </div>
 <!-- MODAL -->
 
-      <nav class="navbar navbar-default"  style="margin-top:10px;" role="navigation">
-        <div class="container-fluid">
-          <!-- Brand and toggle get grouped for better mobile display -->
-          <div class="navbar-header">
-            <a class="navbar-brand" href="/">Web Reg <sup> 2.0 </sup></a>
-          </div>
 
-          <ul class="nav navbar-nav navbar-right">
-            {{#if notloggedin}}
-            <li><button class="btn btn-default" style="margin-top:5px;" data-toggle="modal" data-target="#login">Login</button>
-             <button class="btn btn-default"  style="margin-top:5px;" onclick="location.href = ('/signup');" >Sign up</button>
-           </li>
-           {{/if}}
-           {{#if loggedin}}
-           <button class="btn btn-default" style="margin-top:5px;" data-bind="click: logout">Log Out </button>
-           {{/if}}
-         </ul>
-       </div><!-- /.container-fluid -->
-     </nav>
+
 
 
   <!-- LOG-IN MODAL -->

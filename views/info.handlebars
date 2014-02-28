@@ -34,26 +34,8 @@ $(document).ready(function(){
 });
 </script>
 <body class="container" id="container">
-<nav class="navbar navbar-default"  style="margin-top:10px;" role="navigation">
-  <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <a class="navbar-brand" href="/">Web Reg <sup> 2.0 </sup></a>
-    </div>
 
-      <ul class="nav navbar-nav navbar-right">
-        {{#if notloggedin}}
-        <li><button class="btn btn-default" style="margin-top:5px;" data-toggle="modal" data-target="#login">Login</button>
-           <button class="btn btn-default"  style="margin-top:5px;" onclick="window.open('/signup');" >Sign up</button>
-        </li>
-        {{/if}}
-        {{#if loggedin}}
-          <button class="btn btn-default" style="margin-top:5px;" data-bind="click: logout">Log Out </button>
-        {{/if}}
-      </ul>
-  </div><!-- /.container-fluid -->
-</nav>
-
+{{> header}}
 
 <!-- MODAL -->
 <div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -98,25 +80,28 @@ $(document).ready(function(){
       <li class="active" data-bind="text : _class().name"></li>
     </ol>
 
-    <h3>Presented by <span data-bind="text : _class().instructor"></span>
-      
-      {{#if loggedin}}
-         <a data-bind="enroll : _class, 
-         css : { 'btn-success' : !_class().enrolled(),
-         'btn-danger' : _class().enrolled()}, 
-         text : _class().enrolled() == false? 'Enroll' : 'Drop'" class="btn">Enroll</a></h3>
-      {{/if}}
-      {{#if notloggedin}}
-    </h3>
-      {{/if}}
+    <h4><span data-bind="text : _class().name"></span></h4>
+    <h4>Presented by <span data-bind="text : _class().instructor"></span><h4>
+
+    <!-- Enroll button -->
+    {{#if loggedin}}
+       <a data-bind="enroll : _class, 
+       css : { 'btn-success' : !_class().enrolled(),
+       'btn-danger' : _class().enrolled()}, 
+       text : _class().enrolled() == false? 'Enroll' : 'Drop'" class="btn">Enroll</a></h3>
+    {{/if}}
+    {{#if notloggedin}}
+    {{/if}}
 
 <!-- Nav tabs -->
+<h5>
 <ul class="nav nav-tabs">
   <li class="active"><a href="#info" data-toggle="tab">Class Info</a></li>
   <li><a href="#enrollment" data-toggle="tab">Enrollment Stats</a></li>
   <li><a href="#cape" data-toggle="tab">CAPE Reviews</a></li>
   <li><a href="#feed" data-toggle="tab">Live Feed</a></li>
 </ul>
+</h5>
 
   <div class="tab-content">
   <div class="tab-pane" id ="cape">
@@ -159,7 +144,7 @@ $(document).ready(function(){
 
 
   <div class="tab-pane active" id="info">
-   <h4>Lecture Times</h4>
+   <h5>Lecture Times</h5>
     <table class="table">
       <thead><tr>
         <td>Day</td> <td>Hour</td>
@@ -168,7 +153,11 @@ $(document).ready(function(){
         <tr><td data-bind="text : day"></td><td data-bind="text : time"></td></tr>
       </tbody>
     </table>
+<<<<<<< HEAD
+    <h5>Discussion Times</h5>
+=======
     <h4>Discussion Times</h4>
+>>>>>>> 04b455eea44f9a8ab351bd6fbcaa5c5feebdcd18
     <table class="table" data-bind="if : _class().info.discussion_time">
       <thead><tr>
         <td>Day</td> <td>Hour</td>
@@ -177,7 +166,11 @@ $(document).ready(function(){
         <tr><td data-bind="text : day"></td><td data-bind="text : time"></td></tr>
       </tbody>
     </table>
+<<<<<<< HEAD
+    <h5>Prerequisites</h5>
+=======
     <h4>Prerequisites</h4>
+>>>>>>> 04b455eea44f9a8ab351bd6fbcaa5c5feebdcd18
       <ul class="list-group">
          <li class="list-group-item">CSE 100</li>
          <li class="list-group-item">CSE 105</li>
