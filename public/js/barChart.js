@@ -8,8 +8,8 @@ function generateBarChart(element, data, type, x_axis){
     $(element).highcharts({
             chart: {
                 type: 'pie',
-                width:$(window).width()*.5,
-                height:$(window).height()*5
+                width: 300,
+                height:300
             },
             title: {
                 text: "Percentage of students' "+ type
