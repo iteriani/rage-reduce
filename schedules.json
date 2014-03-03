@@ -322,5 +322,280 @@
     "prereqs" : ["Consent of Department/Instructor"],
 
     "cape_review" : "Paturi, Ramamohan*CSE 190 - Topics/Computer Sci & Engineer (A)*FA13*36*17*94.1 %*94.1 %*6.74*3.59*3.62|Hoover, Gregory William*CSE 190 - Topics/Computer Sci & Engineer (A)*S213*23*14*100.0 %*100.0 %*15.67*3.33*3.73|Chockalingam, Ganapathy*CSE 190 - Topics/Computer Sci & Engineer (A)*SP13*35*11*100.0 %*90.9 %*7.41*3.80*3.60|Jensen, Henrik*No CAPEs submitted*SP13*2*0*N/A*N/A*N/A*N/A*N/A|Schulze, Jurgen P.*CSE 190 - Topics/Computer Sci & Engineer (B)*WI13*23*16*93.8 %*100.0 %*9.25*3.87*3.87|Hoover, Gregory William*CSE 190 - Topics/Computer Sci & Engineer (C)*WI13*37*29*100.0 %*96.6 %*13.05*3.55*3.57|Cottrell, Garrison W*CSE 190 - Topics/Computer Sci & Engineer (E)*WI13*15*7*100.0 %*100.0 %*8.17*3.57*N/A|Deutsch, Alin Bernard*CSE 190 - Topics/Computer Sci & Engineer (B)*FA12*16*4*100.0 %*100.0 %*6.50*3.75*N/A|Kriegman, David J*CSE 190 - Topics/Computer Sci & Engineer (C)*WI12*2*2*100.0 %*100.0 %*5.50*4.00*N/A|Paturi, Ramamohan*CSE 190 - Topics/Computer Sci & Engineer (D)*WI12*74*39*79.5 %*51.3 %*4.97*3.39*3.39|Engel, Wolfgang F.*CSE 190 - Topics/Computer Sci & Engineer (F)*WI12*15*8*75.0 %*75.0 %*7.25*3.29*N/A|Cottrell, Garrison W*CSE 190 - Topics/Computer Sci & Engineer (G)*WI12*7*4*75.0 %*75.0 %*5.00*4.00*N/A|Deutsch, Alin Bernard*CSE 190 - Topics/Computer Sci & Engineer (A)*FA11*13*5*100.0 %*100.0 %*5.70*4.00*N/A|Belongie, Serge J.*CSE 190 - Topics/Computer Sci & Engineer (A)*SP11*10*5*100.0 %*100.0 %*15.30*4.00*N/A|Paturi, Ramamohan*CSE 190 - Topics/Computer Sci & Engineer (A)*WI11*48*23*73.9 %*43.5 %*4.33*3.50*3.82|Kriegman, David J*CSE 190 - Topics/Computer Sci & Engineer (D)*WI11*7*4*100.0 %*100.0 %*13.00*3.33*N/A|Engel, Wolfgang F.*CSE 190 - Topics/Computer Sci & Engineer (E)*WI11*8*3*100.0 %*100.0 %*9.83*3.67*N/A|Cottrell, Garrison W*CSE 190 - Topics/Computer Sci & Engineer (A)*FA10*12*5*80.0 %*80.0 %*10.10*3.25*N/A|Belongie, Serge J.*CSE 190 - Topics/Computer Sci & Engineer (A)*WI10*10*8*100.0 %*87.5 %*11.00*4.00*N/A|Engel, Wolfgang F.*CSE 190 - Topics/Computer Sci & Engineer (B)*WI10*25*12*83.3 %*75.0 %*11.05*3.33*3.84|Kriegman, David J*CSE 190 - Topics/Computer Sci & Engineer (C)*WI10*4*1*100.0 %*100.0 %*6.50*2.00*N/A|Cottrell, Garrison W*CSE 190 - Topics/Computer Sci & Engineer (A)*FA09*10*9*77.8 %*100.0 %*6.94*3.86*N/A|Dasgupta, Sanjoy*CSE 190 - Topics/Computer Sci & Engineer (A)*SP09*18*14*78.6 %*100.0 %*5.79*3.69*2.96|Freund, Yoav*CSE 190 - Topics/Computer Sci & Engineer (A)*SP09*18*13*76.9 %*30.8 %*5.58*3.69*2.96|Belongie, Serge J.*CSE 190 - Topics/Computer Sci & Engineer (A)*WI09*9*10*100.0 %*100.0 %*8.30*4.00*N/A|Cottrell, Garrison W*CSE 190 - Topics/Computer Sci & Engineer (A)*FA08*7*8*87.5 %*100.0 %*8.25*3.43*N/A|Belongie, Serge J.*CSE 190 - Topics/Computer Sci & Engineer (A)*WI08*6*7*100.0 %*100.0 %*6.50*3.83*N/A"
-  }
+  },
+
+  "26" : {
+
+    "lecture_time" : [
+      {"day" : "Tuesday", "time" : "12:30-1:50"}, {"day" :"Thursday", "time" : "12:30-1:50"}
+    ],
+
+    "prereqs" : ["Math 10A or 20A"],
+
+    "cape_review" : "Paturi, Ramamohan*CSE 190 - Topics/Computer Sci & Engineer (A)*FA13*36*17*94.1 %*94.1 %*6.74*3.59*3.62|Hoover, Gregory William*CSE 190 - Topics/Computer Sci & Engineer (A)*S213*23*14*100.0 %*100.0 %*15.67*3.33*3.73|Chockalingam, Ganapathy*CSE 190 - Topics/Computer Sci & Engineer (A)*SP13*35*11*100.0 %*90.9 %*7.41*3.80*3.60|Jensen, Henrik*No CAPEs submitted*SP13*2*0*N/A*N/A*N/A*N/A*N/A|Schulze, Jurgen P.*CSE 190 - Topics/Computer Sci & Engineer (B)*WI13*23*16*93.8 %*100.0 %*9.25*3.87*3.87|Hoover, Gregory William*CSE 190 - Topics/Computer Sci & Engineer (C)*WI13*37*29*100.0 %*96.6 %*13.05*3.55*3.57|Cottrell, Garrison W*CSE 190 - Topics/Computer Sci & Engineer (E)*WI13*15*7*100.0 %*100.0 %*8.17*3.57*N/A|Deutsch, Alin Bernard*CSE 190 - Topics/Computer Sci & Engineer (B)*FA12*16*4*100.0 %*100.0 %*6.50*3.75*N/A|Kriegman, David J*CSE 190 - Topics/Computer Sci & Engineer (C)*WI12*2*2*100.0 %*100.0 %*5.50*4.00*N/A|Paturi, Ramamohan*CSE 190 - Topics/Computer Sci & Engineer (D)*WI12*74*39*79.5 %*51.3 %*4.97*3.39*3.39|Engel, Wolfgang F.*CSE 190 - Topics/Computer Sci & Engineer (F)*WI12*15*8*75.0 %*75.0 %*7.25*3.29*N/A|Cottrell, Garrison W*CSE 190 - Topics/Computer Sci & Engineer (G)*WI12*7*4*75.0 %*75.0 %*5.00*4.00*N/A|Deutsch, Alin Bernard*CSE 190 - Topics/Computer Sci & Engineer (A)*FA11*13*5*100.0 %*100.0 %*5.70*4.00*N/A|Belongie, Serge J.*CSE 190 - Topics/Computer Sci & Engineer (A)*SP11*10*5*100.0 %*100.0 %*15.30*4.00*N/A|Paturi, Ramamohan*CSE 190 - Topics/Computer Sci & Engineer (A)*WI11*48*23*73.9 %*43.5 %*4.33*3.50*3.82|Kriegman, David J*CSE 190 - Topics/Computer Sci & Engineer (D)*WI11*7*4*100.0 %*100.0 %*13.00*3.33*N/A|Engel, Wolfgang F.*CSE 190 - Topics/Computer Sci & Engineer (E)*WI11*8*3*100.0 %*100.0 %*9.83*3.67*N/A|Cottrell, Garrison W*CSE 190 - Topics/Computer Sci & Engineer (A)*FA10*12*5*80.0 %*80.0 %*10.10*3.25*N/A|Belongie, Serge J.*CSE 190 - Topics/Computer Sci & Engineer (A)*WI10*10*8*100.0 %*87.5 %*11.00*4.00*N/A|Engel, Wolfgang F.*CSE 190 - Topics/Computer Sci & Engineer (B)*WI10*25*12*83.3 %*75.0 %*11.05*3.33*3.84|Kriegman, David J*CSE 190 - Topics/Computer Sci & Engineer (C)*WI10*4*1*100.0 %*100.0 %*6.50*2.00*N/A|Cottrell, Garrison W*CSE 190 - Topics/Computer Sci & Engineer (A)*FA09*10*9*77.8 %*100.0 %*6.94*3.86*N/A|Dasgupta, Sanjoy*CSE 190 - Topics/Computer Sci & Engineer (A)*SP09*18*14*78.6 %*100.0 %*5.79*3.69*2.96|Freund, Yoav*CSE 190 - Topics/Computer Sci & Engineer (A)*SP09*18*13*76.9 %*30.8 %*5.58*3.69*2.96|Belongie, Serge J.*CSE 190 - Topics/Computer Sci & Engineer (A)*WI09*9*10*100.0 %*100.0 %*8.30*4.00*N/A|Cottrell, Garrison W*CSE 190 - Topics/Computer Sci & Engineer (A)*FA08*7*8*87.5 %*100.0 %*8.25*3.43*N/A|Belongie, Serge J.*CSE 190 - Topics/Computer Sci & Engineer (A)*WI08*6*7*100.0 %*100.0 %*6.50*3.83*N/A"
+  },
+
+  "27" : {
+    "lecture_time" : [
+      {"day" : "Monday", "time" : "1:00-1:50"}, {"day" :"Wednesday", "time" : "1:00-1:50"}, {"day" :"Friday", "time" : "1:00-1:50"}
+    ],
+
+    "prereqs" : ["Phys 1A, Phys 1AL, Math 10B or 20B"],
+
+    "cape_review" : "Jensen, Henrik*CSE 168 - Computer Graphics II:Rendering (A)*SP13*16*7*100.0 %*100.0 %*14.79*3.17*N/A|Jensen, Henrik*CSE 168 - Computer Graphics II:Rendering (A)*SP12*14*5*100.0 %*80.0 %*17.30*2.80*N/A|Jensen, Henrik*CSE 168 - Computer Graphics II:Rendering (A)*WI11*28*16*100.0 %*87.5 %*15.88*3.43*3.38|Jensen, Henrik*CSE 168 - Computer Graphics II:Rendering (A)*SP10*35*16*93.8 %*93.8 %*15.57*3.80*3.20|Jensen, Henrik*CSE 168 - Computer Graphics II:Rendering (A)*SP08*13*14*100.0 %*100.0 %*11.93*3.85*N/A"
+  },
+
+  "28" : {
+    "lecture_time" : [
+      {"day" : "Monday", "time" : "3:00-3:50"}, {"day" :"Wednesday", "time" : "3:00-3:50"}, {"day" :"Friday", "time" : "3:00-3:50"}
+    ],
+
+    "prereqs" : ["Phys 1B, Phys 1BL, Math 10C or 20C"],
+
+    "cape_review" : "Jensen, Henrik*CSE 168 - Computer Graphics II:Rendering (A)*SP13*16*7*100.0 %*100.0 %*14.79*3.17*N/A|Jensen, Henrik*CSE 168 - Computer Graphics II:Rendering (A)*SP12*14*5*100.0 %*80.0 %*17.30*2.80*N/A|Jensen, Henrik*CSE 168 - Computer Graphics II:Rendering (A)*WI11*28*16*100.0 %*87.5 %*15.88*3.43*3.38|Jensen, Henrik*CSE 168 - Computer Graphics II:Rendering (A)*SP10*35*16*93.8 %*93.8 %*15.57*3.80*3.20|Jensen, Henrik*CSE 168 - Computer Graphics II:Rendering (A)*SP08*13*14*100.0 %*100.0 %*11.93*3.85*N/A"
+  },
+
+  "29" : {
+
+    "lecture_time" : [
+      {"day" : "Tuesday", "time" : "11:00-12:20"}, {"day" :"Thursday", "time" : "11:00-12:20"}
+    ],
+
+    "discussion_time" : [{"day" : "Wednesday", "time" : "5:00-5:50"}],
+
+    "prereqs" : ["Math 20A"],
+
+    "cape_review" : "Wang, Wei*CSE 184 - Computational Molecular Biol. (A)*WI10*10*3*33.3 %*33.3 %*6.50*3.00*N/A|Wang, Wei*CSE 184 - Computational Molecular Biol. (A)*WI09*4*8*100.0 %*100.0 %*11.00*3.75*N/A|Wang, Wei*CSE 184 - Computational Molecular Biol. (A)*WI08*15*8*75.0 %*75.0 %*9.25*N/A*N/A"
+  },
+
+  "30" : {
+
+    "lecture_time" : [
+      {"day" : "Tuesday", "time" : "9:30-10:50"}, {"day" :"Thursday", "time" : "9:30-10:50"}
+    ],
+
+    "discussion_time" : [{"day" : "Wednesday", "time" : "7:00-7:50"}],
+
+    "prereqs" : ["Math 20B, Phys 2A"],
+
+    "cape_review" : "Creel, Sarah*COGS 101B - Learning, Memory and Attention (A)*WI13*318*118*80.0 %*70.4 %*4.64*3.35*3.27|Creel, Sarah*COGS 101B - Learning, Memory and Attention (A)*WI12*248*110*87.9 %*81.9 %*4.37*3.42*3.02|Creel, Sarah*COGS 101B - Learning, Memory and Attention (A)*WI11*196*99*84.8 %*84.8 %*4.46*3.39*3.15|Creel, Sarah*COGS 101B - Learning, Memory and Attention (A)*WI10*140*53*84.9 %*79.2 %*4.20*3.37*3.09|Creel, Sarah*COGS 101B - Learning, Memory and Attention (A)*SP09*174*74*89.2 %*90.4 %*4.07*3.44*3.04|Creel, Sarah*COGS 101B - Learning, Memory and Attention (A)*WI08*126*81*92.6 %*93.8 %*4.01*3.44*2.93|Robinson, Alan E.*COGS 101B - Learning, Memory and Attention (A)*SU07*24*19*84.2 %*66.7 %*6.61*3.26*N/A"
+
+    },
+
+  "31" : {
+    "lecture_time" : [
+      {"day" : "Monday", "time" : "10:00-10:50"}, {"day" :"Wednesday", "time" : "10:00-10:50"}, {"day" :"Friday", "time" : "10:00-10:50"}
+    ],
+
+    "discussion_time" : [{"day" : "Tuesday", "time" : "7:00-7:50"}],
+
+    "prereqs" : ["Math 20C, Phys 2B"],
+
+    "cape_review" : "Jensen, Henrik*CSE 168 - Computer Graphics II:Rendering (A)*SP13*16*7*100.0 %*100.0 %*14.79*3.17*N/A|Jensen, Henrik*CSE 168 - Computer Graphics II:Rendering (A)*SP12*14*5*100.0 %*80.0 %*17.30*2.80*N/A|Jensen, Henrik*CSE 168 - Computer Graphics II:Rendering (A)*WI11*28*16*100.0 %*87.5 %*15.88*3.43*3.38|Jensen, Henrik*CSE 168 - Computer Graphics II:Rendering (A)*SP10*35*16*93.8 %*93.8 %*15.57*3.80*3.20|Jensen, Henrik*CSE 168 - Computer Graphics II:Rendering (A)*SP08*13*14*100.0 %*100.0 %*11.93*3.85*N/A"
+  },
+
+  "32" : {
+    "lecture_time" : [
+      {"day" : "Monday", "time" : "11:00-11:50"}, {"day" :"Wednesday", "time" : "11:00-11:50"}, {"day" :"Friday", "time" : "11:00-11:50"}
+    ],
+
+    "discussion_time" : [{"day" : "Monday", "time" : "7:00-7:50"}],
+
+    "prereqs" : ["Chem 6A, Chem 6B"],
+
+    "cape_review" : "Jensen, Henrik*CSE 168 - Computer Graphics II:Rendering (A)*SP13*16*7*100.0 %*100.0 %*14.79*3.17*N/A|Jensen, Henrik*CSE 168 - Computer Graphics II:Rendering (A)*SP12*14*5*100.0 %*80.0 %*17.30*2.80*N/A|Jensen, Henrik*CSE 168 - Computer Graphics II:Rendering (A)*WI11*28*16*100.0 %*87.5 %*15.88*3.43*3.38|Jensen, Henrik*CSE 168 - Computer Graphics II:Rendering (A)*SP10*35*16*93.8 %*93.8 %*15.57*3.80*3.20|Jensen, Henrik*CSE 168 - Computer Graphics II:Rendering (A)*SP08*13*14*100.0 %*100.0 %*11.93*3.85*N/A"
+  },
+
+  "33" : {
+    "lecture_time" : [
+      {"day" : "Monday", "time" : "9:00-9:50"}, {"day" :"Wednesday", "time" : "9:00-9:50"}, {"day" :"Friday", "time" : "9:00-9:50"}
+    ],
+
+    "discussion_time" : [{"day" : "Monday", "time" : "7:00-7:50"}],
+
+    "prereqs" : ["BILD 1"],
+
+    "cape_review" : "Jensen, Henrik*CSE 168 - Computer Graphics II:Rendering (A)*SP13*16*7*100.0 %*100.0 %*14.79*3.17*N/A|Jensen, Henrik*CSE 168 - Computer Graphics II:Rendering (A)*SP12*14*5*100.0 %*80.0 %*17.30*2.80*N/A|Jensen, Henrik*CSE 168 - Computer Graphics II:Rendering (A)*WI11*28*16*100.0 %*87.5 %*15.88*3.43*3.38|Jensen, Henrik*CSE 168 - Computer Graphics II:Rendering (A)*SP10*35*16*93.8 %*93.8 %*15.57*3.80*3.20|Jensen, Henrik*CSE 168 - Computer Graphics II:Rendering (A)*SP08*13*14*100.0 %*100.0 %*11.93*3.85*N/A"
+  },
+
+  "34" : {
+    "lecture_time" : [
+      {"day" : "Monday", "time" : "12:00-12:50"}, {"day" :"Wednesday", "time" : "12:00-12:50"}, {"day" :"Friday", "time" : "12:00-12:50"}
+    ],
+
+    "discussion_time" : [{"day" : "Monday", "time" : "7:00-7:50"}],
+
+    "prereqs" : ["BILD 2"],
+
+    "cape_review" : "Jensen, Henrik*CSE 168 - Computer Graphics II:Rendering (A)*SP13*16*7*100.0 %*100.0 %*14.79*3.17*N/A|Jensen, Henrik*CSE 168 - Computer Graphics II:Rendering (A)*SP12*14*5*100.0 %*80.0 %*17.30*2.80*N/A|Jensen, Henrik*CSE 168 - Computer Graphics II:Rendering (A)*WI11*28*16*100.0 %*87.5 %*15.88*3.43*3.38|Jensen, Henrik*CSE 168 - Computer Graphics II:Rendering (A)*SP10*35*16*93.8 %*93.8 %*15.57*3.80*3.20|Jensen, Henrik*CSE 168 - Computer Graphics II:Rendering (A)*SP08*13*14*100.0 %*100.0 %*11.93*3.85*N/A"
+  },
+
+  "35" : {
+    "lecture_time" : [
+      {"day" : "Monday", "time" : "12:00-12:50"}, {"day" :"Wednesday", "time" : "12:00-12:50"}, {"day" :"Friday", "time" : "12:00-12:50"}
+    ],
+
+    "discussion_time" : [{"day" : "Wednesday", "time" : "7:00-7:50"}],
+
+    "prereqs" : ["None"],
+
+    "cape_review" : "Jensen, Henrik*CSE 168 - Computer Graphics II:Rendering (A)*SP13*16*7*100.0 %*100.0 %*14.79*3.17*N/A|Jensen, Henrik*CSE 168 - Computer Graphics II:Rendering (A)*SP12*14*5*100.0 %*80.0 %*17.30*2.80*N/A|Jensen, Henrik*CSE 168 - Computer Graphics II:Rendering (A)*WI11*28*16*100.0 %*87.5 %*15.88*3.43*3.38|Jensen, Henrik*CSE 168 - Computer Graphics II:Rendering (A)*SP10*35*16*93.8 %*93.8 %*15.57*3.80*3.20|Jensen, Henrik*CSE 168 - Computer Graphics II:Rendering (A)*SP08*13*14*100.0 %*100.0 %*11.93*3.85*N/A"
+  },
+
+  "36" : {
+
+    "lecture_time" : [
+      {"day" : "Tuesday", "time" : "9:00-10:20"}, {"day" :"Thursday", "time" : "9:00-10:20"}
+    ],
+
+    "discussion_time" : [{"day" : "Wednesday", "time" : "5:00-5:50"}],
+
+    "prereqs" : ["Chem 6A, Math 10A or 20A"],
+
+    "cape_review" : "Wang, Wei*CSE 184 - Computational Molecular Biol. (A)*WI10*10*3*33.3 %*33.3 %*6.50*3.00*N/A|Wang, Wei*CSE 184 - Computational Molecular Biol. (A)*WI09*4*8*100.0 %*100.0 %*11.00*3.75*N/A|Wang, Wei*CSE 184 - Computational Molecular Biol. (A)*WI08*15*8*75.0 %*75.0 %*9.25*N/A*N/A"
+  },
+
+  "37" : {
+    "lecture_time" : [
+      {"day" : "Monday", "time" : "8:00-8:50"}, {"day" :"Wednesday", "time" : "8:00-8:50"}, {"day" :"Friday", "time" : "8:00-8:50"}
+    ],
+
+    "discussion_time" : [{"day" : "Monday", "time" : "7:00-7:50"}],
+
+    "prereqs" : ["Chem 6B, Math 10B or 20B"],
+
+    "cape_review" : "Jensen, Henrik*CSE 168 - Computer Graphics II:Rendering (A)*SP13*16*7*100.0 %*100.0 %*14.79*3.17*N/A|Jensen, Henrik*CSE 168 - Computer Graphics II:Rendering (A)*SP12*14*5*100.0 %*80.0 %*17.30*2.80*N/A|Jensen, Henrik*CSE 168 - Computer Graphics II:Rendering (A)*WI11*28*16*100.0 %*87.5 %*15.88*3.43*3.38|Jensen, Henrik*CSE 168 - Computer Graphics II:Rendering (A)*SP10*35*16*93.8 %*93.8 %*15.57*3.80*3.20|Jensen, Henrik*CSE 168 - Computer Graphics II:Rendering (A)*SP08*13*14*100.0 %*100.0 %*11.93*3.85*N/A"
+  },
+
+  "38" : {
+    "lecture_time" : [
+      {"day" : "Monday", "time" : "12:00-12:50"}, {"day" :"Wednesday", "time" : "12:00-12:50"}, {"day" :"Friday", "time" : "12:00-12:50"}
+    ],
+
+    "discussion_time" : [{"day" : "Thursday", "time" : "7:00-7:50"}],
+
+    "prereqs" : ["None"],
+
+    "cape_review" : "Jensen, Henrik*CSE 168 - Computer Graphics II:Rendering (A)*SP13*16*7*100.0 %*100.0 %*14.79*3.17*N/A|Jensen, Henrik*CSE 168 - Computer Graphics II:Rendering (A)*SP12*14*5*100.0 %*80.0 %*17.30*2.80*N/A|Jensen, Henrik*CSE 168 - Computer Graphics II:Rendering (A)*WI11*28*16*100.0 %*87.5 %*15.88*3.43*3.38|Jensen, Henrik*CSE 168 - Computer Graphics II:Rendering (A)*SP10*35*16*93.8 %*93.8 %*15.57*3.80*3.20|Jensen, Henrik*CSE 168 - Computer Graphics II:Rendering (A)*SP08*13*14*100.0 %*100.0 %*11.93*3.85*N/A"
+  },
+
+  "39" : {
+    "lecture_time" : [
+      {"day" : "Monday", "time" : "11:00-11:50"}, {"day" :"Wednesday", "time" : "11:00-11:50"}, {"day" :"Friday", "time" : "11:00-11:50"}
+    ],
+
+    "discussion_time" : [{"day" : "Thursday", "time" : "7:00-7:50"}],
+
+    "prereqs" : ["Math 20A"],
+
+    "cape_review" : "Jensen, Henrik*CSE 168 - Computer Graphics II:Rendering (A)*SP13*16*7*100.0 %*100.0 %*14.79*3.17*N/A|Jensen, Henrik*CSE 168 - Computer Graphics II:Rendering (A)*SP12*14*5*100.0 %*80.0 %*17.30*2.80*N/A|Jensen, Henrik*CSE 168 - Computer Graphics II:Rendering (A)*WI11*28*16*100.0 %*87.5 %*15.88*3.43*3.38|Jensen, Henrik*CSE 168 - Computer Graphics II:Rendering (A)*SP10*35*16*93.8 %*93.8 %*15.57*3.80*3.20|Jensen, Henrik*CSE 168 - Computer Graphics II:Rendering (A)*SP08*13*14*100.0 %*100.0 %*11.93*3.85*N/A"
+  },
+
+  "40" : {
+    "lecture_time" : [
+      {"day" : "Monday", "time" : "1:00-1:50"}, {"day" :"Wednesday", "time" : "1:00-1:50"}, {"day" :"Friday", "time" : "1:00-1:50"}
+    ],
+
+    "discussion_time" : [{"day" : "Thursday", "time" : "7:00-7:50"}],
+
+    "prereqs" : ["Math 20B"],
+
+    "cape_review" : "Jensen, Henrik*CSE 168 - Computer Graphics II:Rendering (A)*SP13*16*7*100.0 %*100.0 %*14.79*3.17*N/A|Jensen, Henrik*CSE 168 - Computer Graphics II:Rendering (A)*SP12*14*5*100.0 %*80.0 %*17.30*2.80*N/A|Jensen, Henrik*CSE 168 - Computer Graphics II:Rendering (A)*WI11*28*16*100.0 %*87.5 %*15.88*3.43*3.38|Jensen, Henrik*CSE 168 - Computer Graphics II:Rendering (A)*SP10*35*16*93.8 %*93.8 %*15.57*3.80*3.20|Jensen, Henrik*CSE 168 - Computer Graphics II:Rendering (A)*SP08*13*14*100.0 %*100.0 %*11.93*3.85*N/A"
+  },
+
+  "41" : {
+    "lecture_time" : [
+      {"day" : "Monday", "time" : "1:00-1:50"}, {"day" :"Wednesday", "time" : "1:00-1:50"}, {"day" :"Friday", "time" : "1:00-1:50"}
+    ],
+
+    "discussion_time" : [{"day" : "Wednesday", "time" : "4:00-4:50"}],
+
+    "prereqs" : ["None"],
+
+    "cape_review" : "Jensen, Henrik*CSE 168 - Computer Graphics II:Rendering (A)*SP13*16*7*100.0 %*100.0 %*14.79*3.17*N/A|Jensen, Henrik*CSE 168 - Computer Graphics II:Rendering (A)*SP12*14*5*100.0 %*80.0 %*17.30*2.80*N/A|Jensen, Henrik*CSE 168 - Computer Graphics II:Rendering (A)*WI11*28*16*100.0 %*87.5 %*15.88*3.43*3.38|Jensen, Henrik*CSE 168 - Computer Graphics II:Rendering (A)*SP10*35*16*93.8 %*93.8 %*15.57*3.80*3.20|Jensen, Henrik*CSE 168 - Computer Graphics II:Rendering (A)*SP08*13*14*100.0 %*100.0 %*11.93*3.85*N/A"
+  },
+
+  "42" : {
+    "lecture_time" : [
+      {"day" : "Tuesday", "time" : "11:00-12:20"}, {"day" :"Thursday", "time" : "11:00-12:20"}
+    ],
+
+    "discussion_time" : [{"day" : "Wednesday", "time" : "3:00-3:50"}],
+
+    "prereqs" : ["CSE 8A"],
+
+    "cape_review" : "Wang, Wei*CSE 184 - Computational Molecular Biol. (A)*WI10*10*3*33.3 %*33.3 %*6.50*3.00*N/A|Wang, Wei*CSE 184 - Computational Molecular Biol. (A)*WI09*4*8*100.0 %*100.0 %*11.00*3.75*N/A|Wang, Wei*CSE 184 - Computational Molecular Biol. (A)*WI08*15*8*75.0 %*75.0 %*9.25*N/A*N/A"
+  },
+
+  "43" : {
+    "lecture_time" : [
+      {"day" : "Monday", "time" : "10:00-10:50"}, {"day" :"Wednesday", "time" : "10:00-10:50"}, {"day" :"Friday", "time" : "10:00-10:50"}
+    ],
+
+    "discussion_time" : [{"day" : "Wednesday", "time" : "3:00-3:50"}],
+
+    "prereqs" : ["None"],
+
+    "cape_review" : "Jensen, Henrik*CSE 168 - Computer Graphics II:Rendering (A)*SP13*16*7*100.0 %*100.0 %*14.79*3.17*N/A|Jensen, Henrik*CSE 168 - Computer Graphics II:Rendering (A)*SP12*14*5*100.0 %*80.0 %*17.30*2.80*N/A|Jensen, Henrik*CSE 168 - Computer Graphics II:Rendering (A)*WI11*28*16*100.0 %*87.5 %*15.88*3.43*3.38|Jensen, Henrik*CSE 168 - Computer Graphics II:Rendering (A)*SP10*35*16*93.8 %*93.8 %*15.57*3.80*3.20|Jensen, Henrik*CSE 168 - Computer Graphics II:Rendering (A)*SP08*13*14*100.0 %*100.0 %*11.93*3.85*N/A"
+  },
+
+  "44" : {
+    "lecture_time" : [
+      {"day" : "Monday", "time" : "10:00-10:50"}, {"day" :"Wednesday", "time" : "10:00-10:50"}, {"day" :"Friday", "time" : "10:00-10:50"}
+    ],
+
+    "discussion_time" : [{"day" : "Wednesday", "time" : "5:00-5:50"}],
+
+    "prereqs" : ["CSE 11", "CSE 8B"],
+
+    "cape_review" : "Jensen, Henrik*CSE 168 - Computer Graphics II:Rendering (A)*SP13*16*7*100.0 %*100.0 %*14.79*3.17*N/A|Jensen, Henrik*CSE 168 - Computer Graphics II:Rendering (A)*SP12*14*5*100.0 %*80.0 %*17.30*2.80*N/A|Jensen, Henrik*CSE 168 - Computer Graphics II:Rendering (A)*WI11*28*16*100.0 %*87.5 %*15.88*3.43*3.38|Jensen, Henrik*CSE 168 - Computer Graphics II:Rendering (A)*SP10*35*16*93.8 %*93.8 %*15.57*3.80*3.20|Jensen, Henrik*CSE 168 - Computer Graphics II:Rendering (A)*SP08*13*14*100.0 %*100.0 %*11.93*3.85*N/A"
+  },
+
+  "45" : {
+    "lecture_time" : [
+      {"day" : "Monday", "time" : "12:00-12:50"}, {"day" :"Wednesday", "time" : "12:00-12:50"}, {"day" :"Friday", "time" : "12:00-12:50"}
+    ],
+
+    "discussion_time" : [{"day" : "Wednesday", "time" : "7:00-7:50"}],
+
+    "prereqs" : ["CSE 11", "CSE 8B"],
+
+    "cape_review" : "Jensen, Henrik*CSE 168 - Computer Graphics II:Rendering (A)*SP13*16*7*100.0 %*100.0 %*14.79*3.17*N/A|Jensen, Henrik*CSE 168 - Computer Graphics II:Rendering (A)*SP12*14*5*100.0 %*80.0 %*17.30*2.80*N/A|Jensen, Henrik*CSE 168 - Computer Graphics II:Rendering (A)*WI11*28*16*100.0 %*87.5 %*15.88*3.43*3.38|Jensen, Henrik*CSE 168 - Computer Graphics II:Rendering (A)*SP10*35*16*93.8 %*93.8 %*15.57*3.80*3.20|Jensen, Henrik*CSE 168 - Computer Graphics II:Rendering (A)*SP08*13*14*100.0 %*100.0 %*11.93*3.85*N/A"
+  },
+
+  "46" : {
+    "lecture_time" : [
+      {"day" : "Monday", "time" : "8:00-8:50"}, {"day" :"Wednesday", "time" : "8:00-8:50"}, {"day" :"Friday", "time" : "8:00-8:50"}
+    ],
+
+    "discussion_time" : [{"day" : "Monday", "time" : "4:00-4:50"}],
+
+    "prereqs" : ["CSE 11", "CSE 8B"],
+
+    "cape_review" : "Jensen, Henrik*CSE 168 - Computer Graphics II:Rendering (A)*SP13*16*7*100.0 %*100.0 %*14.79*3.17*N/A|Jensen, Henrik*CSE 168 - Computer Graphics II:Rendering (A)*SP12*14*5*100.0 %*80.0 %*17.30*2.80*N/A|Jensen, Henrik*CSE 168 - Computer Graphics II:Rendering (A)*WI11*28*16*100.0 %*87.5 %*15.88*3.43*3.38|Jensen, Henrik*CSE 168 - Computer Graphics II:Rendering (A)*SP10*35*16*93.8 %*93.8 %*15.57*3.80*3.20|Jensen, Henrik*CSE 168 - Computer Graphics II:Rendering (A)*SP08*13*14*100.0 %*100.0 %*11.93*3.85*N/A"
+  },
+
+  "47" : {
+    "lecture_time" : [
+      {"day" : "Monday", "time" : "1:00-1:50"}, {"day" :"Wednesday", "time" : "1:00-1:50"}, {"day" :"Friday", "time" : "1:00-1:50"}
+    ],
+
+    "discussion_time" : [{"day" : "Monday", "time" : "4:00-4:50"}],
+
+    "prereqs" : ["CSE 20"],
+
+    "cape_review" : "Jensen, Henrik*CSE 168 - Computer Graphics II:Rendering (A)*SP13*16*7*100.0 %*100.0 %*14.79*3.17*N/A|Jensen, Henrik*CSE 168 - Computer Graphics II:Rendering (A)*SP12*14*5*100.0 %*80.0 %*17.30*2.80*N/A|Jensen, Henrik*CSE 168 - Computer Graphics II:Rendering (A)*WI11*28*16*100.0 %*87.5 %*15.88*3.43*3.38|Jensen, Henrik*CSE 168 - Computer Graphics II:Rendering (A)*SP10*35*16*93.8 %*93.8 %*15.57*3.80*3.20|Jensen, Henrik*CSE 168 - Computer Graphics II:Rendering (A)*SP08*13*14*100.0 %*100.0 %*11.93*3.85*N/A"
+  },
+
+  "48" : {
+    "lecture_time" : [
+      {"day" : "Tuesday", "time" : "12:30-1:50"}, {"day" :"Thursday", "time" : "12:30-1:50"}
+    ],
+
+    "discussion_time" : [{"day" : "Friday", "time" : "2:00-2:50"}],
+
+    "prereqs" : ["CSE 12, CSE 15L"],
+
+    "cape_review" : "Jernigan, Terry Lynne*COGS 107C - Cognitive Neuroscience (A)*SP13*291*89*75.0 %*67.0 %*3.73*3.79*3.94|Jernigan, Terry Lynne*COGS 107C - Cognitive Neuroscience (A)*SP12*173*76*85.1 %*67.6 %*3.45*3.95*3.94|Barrera, Steven James*COGS 107C - Cognitive Neuroscience (A)*SP11*155*84*96.4 %*100.0 %*4.69*3.51*3.23|Jernigan, Terry Lynne*COGS 107C - Cognitive Neuroscience (A)*SP10*139*69*86.8 %*82.1 %*4.03*3.79*3.43|Jernigan, Terry Lynne*COGS 107C - Cognitive Neuroscience (A)*SP09*146*60*98.1 %*92.5 %*3.78*3.76*3.19|Groppe, David Martin*COGS 107C - Cognitive Neuroscience (A)*SP08*86*49*83.0 %*61.7 %*5.00*3.30*3.06"
+  },
 }
