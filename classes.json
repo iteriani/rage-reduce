@@ -206,4 +206,189 @@
       "max_enrollment" : 50,
       "instructor" : "Ganapathy Chockalingam",
       "group" : "Software Engineering"
-    }]
+    },
+  {
+      "id" : 26,
+      "name" : "Physics 1A - Mechanics",
+      "enrollment" : [],
+      "max_enrollment" : 50,
+      "instructor" : "Christel Sutterley",
+      "group" : "Lower Divison"
+    },
+  {
+      "id" : 27,
+      "name" : "Physics 1B - Electricity and Magnetism",
+      "enrollment" : [],
+      "max_enrollment" : 50,
+      "instructor" : "Michael Anderson",
+      "group" : "Lower Divison"
+    },
+  {
+      "id" : 28,
+      "name" : "Physics 1C - Waves, Optics and Modern Physics",
+      "enrollment" : [],
+      "max_enrollment" : 50,
+      "instructor" : "Frank Wuerthwein  ",
+      "group" : "Lower Divison"
+    },
+  {
+      "id" : 29,
+      "name" : "Physics 2A - Mechanics",
+      "enrollment" : [],
+      "max_enrollment" : 50,
+      "instructor" : "Olga Dudko",
+      "group" : "Lower Divison"
+    },
+  {
+      "id" : 30,
+      "name" : "Physics 2B - Electricity and Magnetism",
+      "enrollment" : [],
+      "max_enrollment" : 50,
+      "instructor" : "Oleg Shpyrko",
+      "group" : "Lower Divison"
+    },
+  {
+      "id" : 31,
+      "name" : "Physics 2C - Fluids, Waves, Thermodynamics, and Optics",
+      "enrollment" : [],
+      "max_enrollment" : 50,
+      "instructor" : "Suckjoon Jun",
+      "group" : "Lower Divison"
+    },
+  {
+      "id" : 32,
+      "name" : "BILD 1 - The Cell",
+      "enrollment" : [],
+      "max_enrollment" : 50,
+      "instructor" : "Stephanie Mel",
+      "group" : "Lower Divison"
+    },
+  {
+      "id" : 33,
+      "name" : "BILD 2 - Multicellular Life",
+      "enrollment" : [],
+      "max_enrollment" : 50,
+      "instructor" : "Kathleen Ann French",
+      "group" : "Lower Divison"
+    },
+  {
+      "id" : 34,
+      "name" : "BILD 3 - Organismic and Evolutionary Biology",
+      "enrollment" : [],
+      "max_enrollment" : 50,
+      "instructor" : "Keefe Reuther",
+      "group" : "Lower Divison"
+    },
+  {
+      "id" : 35,
+      "name" : "CHEM 6A - General Chemistry I",
+      "enrollment" : [],
+      "max_enrollment" : 50,
+      "instructor" : "Christina Johnson",
+      "group" : "Lower Divison"
+    },
+  {
+      "id" : 36,
+      "name" : "CHEM 6B - General Chemistry II",
+      "enrollment" : [],
+      "max_enrollment" : 50,
+      "instructor" : "John Crowell",
+      "group" : "Lower Divison"
+    },
+  {
+      "id" : 37,
+      "name" : "CHEM 6C - General Chemistry III",
+      "enrollment" : [],
+      "max_enrollment" : 50,
+      "instructor" : "Carl Hoeger",
+      "group" : "Lower Divison"
+    },
+  {
+      "id" : 38,
+      "name" : "MATH 20A - Calculus for Science and Engineering",
+      "enrollment" : [],
+      "max_enrollment" : 50,
+      "instructor" : "",
+      "group" : "Lower Divison"
+    },
+  {
+      "id" : 39,
+      "name" : "MATH 20B - Calculus for Science and Engineering  ",
+      "enrollment" : [],
+      "max_enrollment" : 50,
+      "instructor" : "",
+      "group" : "Lower Divison"
+    },
+  {
+      "id" : 40,
+      "name" : "MATH 20C - Calculus and Analytic Geometry for Science and Engineering ",
+      "enrollment" : [],
+      "max_enrollment" : 50,
+      "instructor" : "",
+      "group" : "Lower Divison"
+    },
+  {
+      "id" : 41,
+      "name" : "CSE 3 - Fluency in Information Technology",
+      "enrollment" : [],
+      "max_enrollment" : 50,
+      "instructor" : "Susan Marx",
+      "group" : "Lower Divison"
+    },
+  {
+      "id" : 42,
+      "name" : "CSE 8B - Introduction to Computer Science: Java B",
+      "enrollment" : [],
+      "max_enrollment" : 50,
+      "instructor" : "Ana Cristin Murillo Arnal",
+      "group" : "Lower Divison"
+    },
+  {
+      "id" : 43,
+      "name" : "CSE 11 - Introduction to Computer Science and Object-Oriented Programming: Java",
+      "enrollment" : [],
+      "max_enrollment" : 50,
+      "instructor" : "Staff",
+      "group" : "Lower Divison"
+    },
+  {
+      "id" : 44,
+      "name" : "CSE 12 - Basic Data Structures and Object-Oriented Design",
+      "enrollment" : [],
+      "max_enrollment" : 50,
+      "instructor" : "Christine Alvarado",
+      "group" : "Lower Divison"
+    },
+  {
+      "id" : 45,
+      "name" : "CSE 15L - Tools and Technique Laboratory",
+      "enrollment" : [],
+      "max_enrollment" : 50,
+      "instructor" : "Ilkay Altintas De Callaf",
+      "group" : "Lower Divison"
+    },
+  {
+      "id" : 46,
+      "name" : "CSE 20 - Introduction to Discrete Mathematics ",
+      "enrollment" : [],
+      "max_enrollment" : 50,
+      "instructor" : "Sourav Chakraboty",
+      "group" : "Lower Divison"
+    },
+  {
+      "id" : 47,
+      "name" : "CSE 21 - Mathematics for Algorithms and Systems",
+      "enrollment" : [],
+      "max_enrollment" : 50,
+      "instructor" : "Andrew Kahng",
+      "group" : "Lower Divison"
+    },
+  {
+      "id" : 48,
+      "name" : "CSE 30 - Computer Organization and Systems Programming",
+      "enrollment" : [],
+      "max_enrollment" : 50,
+      "instructor" : "Rick Ord",
+      "group" : "Lower Divison"
+    },
+ ]
