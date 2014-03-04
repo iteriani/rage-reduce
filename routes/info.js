@@ -14,7 +14,7 @@ exports.viewInfo = function(req, res){
 		A=false;
 	}else{
 		A=true;
-		res.redirect("/info/b/" + req.url.split("/info")[1]);
+		res.redirect("/info/b" + req.url.split("/info")[1]);
 	}
 
 		
