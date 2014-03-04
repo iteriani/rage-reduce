@@ -22,17 +22,26 @@ function InfoViewModel(repository, element, enrollmentService){
 	self.enrollmentService = enrollmentService;
 	var ViewModel = ko.observable({
 		_class : ko.observable({name : "Not loaded yet", enrolled : ko.observable(false)}),
+		page : ko.observable(0),
+		viewAlternatives : ko.observable(false),
 		messages : ko.observableArray([]),
 		schedule : ko.observable(),
 		currentMessage : ko.observable(),
 		view : getView(),
 		logout : function(){
 			self.enrollmentService.logout();
-		}
+		},
+
 	});
-
-
-
+	ViewModel().toggleCapes = function(){
+		ViewModel().viewAlternatives(!ViewModel().viewAlternatives())
+	}
+	ViewModel().decrement = function(){
+		ViewModel().page(ViewModel().page()-1)
+	}
+	ViewModel().increment = function(){
+		ViewModel().page(ViewModel().page()+1)
+	}
 	ko.bindingHandlers.enroll = {
 		init : function(element, valueAccessor){
 			$(element).click(function(){
@@ -46,6 +55,19 @@ function InfoViewModel(repository, element, enrollmentService){
 
 		self.db.GetClass(id, function(_class){
 			_class.enrolled = ko.observable(_class.enrolled);
+			var teacher = _class.instructor.split(" ");
+			_class.info.cape_reviewData = _class.info.cape_review
+			_class.info.cape_review = ko.computed(function(){
+
+				var alt = this();
+				return  _class.info.cape_reviewData.filter(function(element){
+					if(alt == false)
+						return element[0].indexOf(teacher[0])  >= 0 || element[0].indexOf(teacher[1])>=0;
+					else 
+						return true;
+				})
+			}, ViewModel().viewAlternatives);
+
 			ViewModel()._class(_class);
 
 

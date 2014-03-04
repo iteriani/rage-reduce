@@ -65,7 +65,6 @@ var io = require('socket.io');
 io = io.listen(server);
 
 fs.readFile("./classes.json", function(err, data){
-	enrollments.classes = JSON.parse(data);
 	app.post("/enrollments/add", enrollments.enroll(io.sockets));
 	app.post("/enrollments/drop", enrollments.drop(io.sockets));
 });

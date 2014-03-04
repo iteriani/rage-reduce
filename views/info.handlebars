@@ -145,12 +145,20 @@ $(document).ready(function(){
             <td>Avg Grade Received</td>
           </tr>
         </thead>
-        <tbody data-bind="foreach: _class().info.cape_review">
+        <tbody data-bind="foreach: _class().info.cape_review().slice(page()*10, (page()+1)*10)">
           <tr data-bind="foreach: {data : $data, as : 'item'}">
             <td data-bind="text : item"></td>
           </tr>
         </tbody>
       </table>
+      <ul class="pagination">
+        <li><a style="cursor:pointer" 
+          data-bind="text : viewAlternatives() == false?'View Alternatives' : 'Hide Alternatives', click : toggleCapes"></a></li>
+       <li><a href="#"> </a></li>
+       <li><a data-bind="visible : page() > 0, click : decrement">&laquo;</a></li>
+       <li><a data-bind="text : page"></a></li>
+       <li><a data-bind="visible : page()*10 <  _class().info.cape_review().length, click:increment">&raquo;</a></li>
+</ul>
   </div>
 
   <div class="tab-pane" id="enrollment">
