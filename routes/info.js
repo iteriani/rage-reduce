@@ -9,13 +9,7 @@ exports.viewInfo = function(req, res){
 		sendInfo.loggedin = false;
 		sendInfo.notloggedin = true;
 	}
-	if(A==true){
 		res.render('info', sendInfo);
-		A=false;
-	}else{
-		A=true;
-		res.redirect("/info/b" + req.url.split("/info")[1]);
-	}
 
 		
 	
