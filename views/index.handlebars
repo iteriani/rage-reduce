@@ -20,11 +20,18 @@
 <body class="container" id="container">
 
 <div class="page-header">
-  <h1>Rage Reducr <small id="typing"></small></h1>
+  <h1>Rage Reduce <small id="typing"></small></h1>
 </div>
-<h3>Insert Training Set Here</h3>
-<textarea data-bind="value : trainingSet"></textarea>
-<button class="button success" data-bind="click : submitTrainingSet">Submit</button>
+<!-- Nav tabs -->
+<ul class="nav nav-tabs" role="tablist">
+  <li class="active"><a href="#home" role="tab" data-toggle="tab">Statements</a></li>
+  <li><a href="#profile" role="tab" data-toggle="tab">Database Training</a></li>
+</ul>
+
+<!-- Tab panes -->
+<div class="tab-content">
+  <div class="tab-pane active" id="home">
+
 <div data-bind="foreach:messages">
   <div class="row">
     <div class="columns large-8 medium-8 small-8">
@@ -43,6 +50,15 @@
     </div>
   </div>
 </div>
+  </div>
+  <div class="tab-pane" id="profile">
+
+<h3>Insert Training Set Here</h3>
+<textarea data-bind="value : trainingSet"></textarea>
+<button class="button success" data-bind="click : submitTrainingSet">Submit</button>
+</div>
+</div>
+
 </body>
     <script src="/js/firebase.js"></script>  
     <script src="https://code.jquery.com/jquery.js"></script>
@@ -88,6 +104,8 @@
         $.post("/trainDataSet", { oldMsg : current, newMsg : newMsg}, function(){
           trainDataSet(dataset.slice(1));
         });
+        }else{
+          alert("Training set complete!")
         }
       }
 
