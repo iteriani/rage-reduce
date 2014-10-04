@@ -97,24 +97,6 @@ app.get("/suggestMessage", function(req,res){
 			tokens: sentimentResult.tokens
 		};
 
-	sentimentResult.tokens.forEach(function(e){
-		MessageLink.findOne({key : e}, function(err, data){
-			console.log(err, data);
-			if(data == null){
-				var msg = new MessageLink({	key : e,
-								familyStrings : [message]});
-				msg.save(function(err){console.log(err)});
-			}else{
-				if(data.familyStrings
-					.map(function(e){return e.toLowerCase()})
-					.indexOf(message.toLowerCase()) < 0){
-						data.familyStrings.push(message);
-						data.save(function(err){console.log(err)});			
-				}
-
-			}
-		})
-	});
 
 	fb.push(fbScore, function() {
 		console.log('word added');
@@ -161,6 +143,7 @@ app.get("/suggestMessage", function(req,res){
 		console.log(phrase);
 
 		if(sentimentResult.score < 0)  {
+			 insertIntoMessageLink(sentimentResult);
 			MessageFix.findOne({message: message}, function(err, fix) {
 				console.log(fix);
 				if(fix == null) {
@@ -188,6 +171,28 @@ app.get("/suggestMessage", function(req,res){
 		}
 	});
 });
+
+function insertIntoMessageLink(sentimentResult){
+		sentimentResult.tokens.forEach(function(e){
+		MessageLink.findOne({key : e}, function(err, data){
+			console.log(err, data);
+			if(data == null){
+				var msg = new MessageLink({	key : e,
+								familyStrings : [message]});
+				msg.save(function(err){console.log(err)});
+			}else{
+				if(data.familyStrings
+					.map(function(e){return e.toLowerCase()})
+					.indexOf(message.toLowerCase()) < 0){
+						data.familyStrings.push(message);
+						data.save(function(err){console.log(err)});			
+				}
+
+			}
+		})
+	});
+
+}
 
 app.get("/messages", function(req,res){
 	Message.find({}, function(err,data){
