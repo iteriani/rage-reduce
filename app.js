@@ -125,41 +125,68 @@ app.get("/suggestMessage", function(req,res){
 	});
 
 	var frequency = {};
-	sentimentResult.tokens.forEach(function(e) {
-		MessageLink.findOne({key: e}, function(err, data) {
-			if(data == null) {
-				//
-			} else {
-				data.familyStrings.forEach(function(match) {
-					if(frequency[match.toLowerCase()]) {
-						frequency[match.toLowerCase()]++;
-					} else {
-						frequency[match.toLowerCase()] = 1;
-					}
-				});
+
+	MessageLink.find({}, function(err, data) {
+		console.log
+		sentimentResult.tokens.forEach(function(e) {
+			for(var i = 0; i < data.length; i++){
+				console.log('at' + i, data[i], e);
+				if(data[i].key == e){
+					data[i].familyStrings.forEach(function(match) {
+						if(frequency[match.toLowerCase()]) {
+							frequency[match.toLowerCase()]++;
+						} else {
+							frequency[match.toLowerCase()] = 1;
+						}
+					});
+				}
 			}
-		})
+		});
+
+		console.log(frequency);
+		var highest;
+		var phrase;
+		console.log(Object.keys(frequency).length);
+		for(var key in frequency) {
+			if(!highest || frequency[key] > highest) {
+				highest = frequency[key];
+				if(key != message){
+					phrase = key;					
+				}
+
+			} else if(frequency[key] == highest) {
+				//equal
+			}
+		}
+		console.log(phrase);
+
+		if(sentimentResult.score < 0)  {
+			MessageFix.findOne({message: message}, function(err, fix) {
+				console.log(fix);
+				if(fix == null) {
+					console.log(sentimentResult.tokens.length >=4, highest, sentimentResult.tokens.length * (2/3));
+					if(sentimentResult.tokens.length >=4 && highest >= sentimentResult.tokens.length * (2/3)) {
+						MessageFix.findOne({message: phrase}, function(err, fix) {
+							if(fix == null) {
+								res.end('CENSORED');
+							} else {
+								res.end(fix.messageFix);
+							}
+						});
+					} else {
+						if(sentimentResult.score < 0){
+							res.end("CENSORED");
+						} else {
+							res.end(req.query.message);		
+						}
+					}
+
+				} else {
+					res.end(fix.messageFix);
+				}
+			});
+		}
 	});
-
-	var highest;
-	// for(var key in frequency) {
-	// 	if(!highest || frequency[key]) {
-	// 		 = ;
-	// 	}
-	// }
-
-	// if(sentimentResult.score < 0) {
-	// 	MessageFix.findOne({message: message}, function(err, fix) {
-	// 		console.log(fix)
-	// 		if(fix == null) {
-	// 			res.end('censored');
-	// 		} else {
-	// 			res.end(fix.messageFix);
-	// 		}
-	// 	})
-	// } else {
-	// 	res.end(req.query.message);
-	// }
 });
 
 app.get("/messages", function(req,res){
