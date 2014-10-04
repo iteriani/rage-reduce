@@ -24,8 +24,8 @@ mongoose.connect(config.dbdev, function(err){
 var sentiment = require("sentiment");
 var url = "",
 Message = require("./models/message.js"),
+MessageFix = require('./models/messageFix.js');
 MessageLink = require("./models/messageLink.js");
-
 
 var app = express();
 
@@ -46,7 +46,7 @@ mongoose.connect(url, function(err){
     }else{
       console.log('Connected to Mongodb.');
     }
-  });
+ });
 
 
 // all environments
@@ -89,16 +89,12 @@ app.get("/suggestMessage", function(req,res){
 	var sentiment = require('sentiment');
 	var message = req.query.message, 
 		sentimentResult = sentiment(message),
-		scoreBody = new Message({message : message, score : sentimentResult.score, tokens : sentimentResult.tokens});
-
-	var sentiment = {
-		word: 'fuck'
-	};
-
-	//fb.push(sentiment, function() {
-	//});
-	scoreBody.save(function(err,res){
-	})
+		scoreBody = new Message({message : message, score : sentimentResult.score, tokens : sentimentResult.tokens}),
+		fbScore = {
+			message: message,
+			score: sentimentResult.score,
+			tokens: sentimentResult.tokens
+		};
 
 	sentimentResult.negative.forEach(function(e){
 		MessageLink.findOne({key : e}, function(err, data){
@@ -119,12 +115,43 @@ app.get("/suggestMessage", function(req,res){
 		})
 	});
 
-	res.end(req.query.message);
+	fb.push(fbScore, function() {
+		console.log('word added');
+	});
+
+	scoreBody.save(function(err,res){
+		console.log(err,res);
+	});
+
+	if(sentimentResult.score < 0) {
+		MessageFix.findOne({message: message}, function(err, fix) {
+			console.log(fix)
+			if(fix === null) {
+				res.end('censored');
+			} else {
+				res.end(fix.messageFix);
+			}
+		})
+	} else {
+		res.end(req.query.message);
+	}
 });
 
 app.get("/messages", function(req,res){
 	Message.find({}, function(err,data){
 		res.json(data);
 	});
+});
+
+app.post('/positiveMessage', function(req, res) {
+	console.log(req.body);
+	Messagefix.find({message: req.body.oldMessage}, function(err, data) {
+		if(data.length === 0) {
+			var positiveMessage = new Messagefix
+			({message: req.body.oldMessage, messageFix: req.body.message});
+			positiveMessage.save();
+		} 
+	});
+	res.end();
 });
 
