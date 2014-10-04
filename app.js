@@ -98,6 +98,9 @@ app.get("/suggestMessage", function(req, res) {
             tokens: sentimentResult.tokens
         };
 
+    if(message.trim().length ===0){
+    	res.end(message);
+    }
 
     fb.push(fbScore, function() {});
 
@@ -147,6 +150,11 @@ app.get("/suggestMessage", function(req, res) {
                             if (fix == null) {
                                 res.end('CENSORED');
                             } else {
+                                var positiveMessage = new MessageFix({
+                                    message: message,
+                                    messageFix: fix.messageFix
+                                });
+                                positiveMessage.save();
                                 res.end(fix.messageFix);
                             }
                         });
@@ -176,19 +184,22 @@ app.get("/suggestMessage", function(req, res) {
     });
 });
 
-function insertIntoMessageLink(sentimentResult, message) {
+function insertIntoMessageLink(sentimentResult, message, cb) {
     sentimentResult.tokens.forEach(function(e) {
+    	if(e.trim().length === 0){
+    		cb();
+    	}
         MessageLink.findOne({
             key: e
         }, function(err, data) {
-            console.log(err, data);
             if (data == null) {
                 var msg = new MessageLink({
                     key: e,
                     familyStrings: [message]
                 });
                 msg.save(function(err) {
-                    console.log(err)
+                    console.log(err);
+                    if(cb){cb()}
                 });
             } else {
                 if (data.familyStrings
@@ -199,13 +210,35 @@ function insertIntoMessageLink(sentimentResult, message) {
                     data.familyStrings.push(message);
                     data.save(function(err) {
                         console.log(err)
+                        if(cb){cb()}
                     });
                 }
 
             }
         })
     });
+}
 
+function insertIntoMessageFix(oldMessage, fix, cb){
+	if(oldMessage.trim().length === 0 || fix.trim().length === 0){
+		cb();
+	}
+	    MessageFix.find({
+        message: oldMessage
+    }, function(err, data) {
+        if (data.length === 0) {
+            var positiveMessage = new MessageFix({
+                message: oldMessage,
+                messageFix: fix
+            });
+            positiveMessage.save(function(){
+               cb();         	
+            });
+
+        } else {
+        	cb();
+        }
+    });
 }
 
 app.get("/messages", function(req, res) {
@@ -214,8 +247,37 @@ app.get("/messages", function(req, res) {
     });
 });
 
+function trainDataSet(dataset, cb){
+	console.log(dataset);
+	var oldMsg = dataset[0][0];
+	var newMsg = dataset[0][1];
+	var sentimentResult = sentiment(oldMsg);
+	insertIntoMessageFix(oldMsg, newMsg, function(){
+		insertIntoMessageLink(sentimentResult, oldMsg, function(){
+			if(dataset.length > 1){
+			trainDataSet(dataset.slice(1), cb);				
+			}else{
+				cb();
+			}
+		});
+	});
+}
+
+app.post("/trainDataSet", function(req,res){
+	var data = req.body.data;
+	data = data.split("\n");
+	var trainingSet = [];
+	data.forEach(function(e){
+		var messages = e.split(":");
+		var oldMsg = messages[0]; var fix = messages[1];
+			trainingSet.push([oldMsg, fix]);
+	});
+	trainDataSet(trainingSet, function(){
+		res.end();
+	})
+});
+
 app.post('/positiveMessage', function(req, res) {
-    console.log(req.body);
     MessageFix.find({
         message: req.body.oldMessage
     }, function(err, data) {
@@ -230,5 +292,4 @@ app.post('/positiveMessage', function(req, res) {
             res.end();
         }
     });
-
 });

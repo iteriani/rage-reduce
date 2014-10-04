@@ -31,7 +31,9 @@
 <div class="page-header">
   <h1>Rage Reducr <small id="typing"></small></h1>
 </div>
-
+<h3>Insert Training Set Here</h3>
+<textarea data-bind="value : trainingSet"></textarea>
+<button class="button success" data-bind="click : submitTrainingSet">Submit</button>
 <div data-bind="foreach:messages">
   <div class="row">
     <div class="columns large-8 medium-8 small-8">
@@ -62,12 +64,18 @@ $("#typing").typed({
   $(document).foundation();
   var viewModel = {
     messages : ko.observableArray([]),
+    trainingSet : ko.observable(""),
     suggestMessage: function(message) {
       var ans = window.prompt('What would you like to replace it with?');
       $.post('/positiveMessage', {oldMessage: message.message, message: ans}, function(data) {
         console.log(data);
       });
-    }
+    },
+  };
+
+  viewModel.submitTrainingSet = function(){
+    var data = viewModel.trainingSet();
+    $.post("/trainDataSet", { data : data});
   };
 
   var fb = new Firebase('https://flickering-fire-29z08.firebaseio.com/');
