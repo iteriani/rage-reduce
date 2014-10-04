@@ -51,7 +51,10 @@ $("#typing").typed({
     strings:["helping you give a fu"], 
     typespeed:0,
     callback : function(){
+      setTimeout(function(){
       $("#typing").text("This message has been censored");
+    },500);
+
     }
     }
     );
@@ -67,7 +70,7 @@ $("#typing").typed({
     }
   };
 
-  var fb = new Firebase('https://flickering-fire-2908.firebaseio.com/');
+  var fb = new Firebase('https://flickering-fire-29z08.firebaseio.com/');
 
   if(fb) {
     console.log('connected to database');

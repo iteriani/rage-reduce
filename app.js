@@ -135,7 +135,7 @@ app.get("/suggestMessage", function(req, res) {
             }
         }
         if (sentimentResult.score < 0) {
-            insertIntoMessageLink(sentimentResult);
+            insertIntoMessageLink(sentimentResult, message);
             MessageFix.findOne({
                 message: message
             }, function(err, fix) {
@@ -164,7 +164,7 @@ app.get("/suggestMessage", function(req, res) {
                     message: phrase
                 }, function(err, fix) {
                     if (fix == null) {
-                        res.end('CENSORED');
+                        res.end(req.query.message);
                     } else {
                         res.end(fix.messageFix);
                     }
@@ -176,7 +176,7 @@ app.get("/suggestMessage", function(req, res) {
     });
 });
 
-function insertIntoMessageLink(sentimentResult) {
+function insertIntoMessageLink(sentimentResult, message) {
     sentimentResult.tokens.forEach(function(e) {
         MessageLink.findOne({
             key: e
