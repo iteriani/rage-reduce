@@ -1,4 +1,4 @@
 module.exports = {
-	db : "mongodb://test:test@ds043190.mongolab.com:43190/calhacks",
+	db : "mongodb://calhacks:calhacks@kahana.mongohq.com:10089/TritonSX",
 	dbdev : "localhost:27017"
 }
