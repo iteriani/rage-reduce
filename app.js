@@ -264,7 +264,17 @@ function trainDataSet(dataset, cb){
 }
 
 app.post("/trainDataSet", function(req,res){
-	var data = req.body.data;
+	var oldMsg = req.body.oldMsg;
+	var newMsg = req.body.newMsg;
+	var sentimentResult = sentiment(oldMsg);
+	insertIntoMessageFix(oldMsg, newMsg, function(){
+		insertIntoMessageLink(sentimentResult, oldMsg, function(){
+			res.end();
+		});
+	});
+
+	/*
+	var data = req.body.oldMsg;
 	data = data.split("\n");
 	var trainingSet = [];
 	data.forEach(function(e){
@@ -274,7 +284,7 @@ app.post("/trainDataSet", function(req,res){
 	});
 	trainDataSet(trainingSet, function(){
 		res.end();
-	})
+	})*/
 });
 
 app.post('/positiveMessage', function(req, res) {

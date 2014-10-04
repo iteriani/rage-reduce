@@ -73,10 +73,22 @@ $("#typing").typed({
     },
   };
 
+  function trainDataSet(dataset){
+    if(dataset.length > 0){
+      dataset[0] = dataset[0].split(":");
+      var current = dataset[0][0];
+      var newMsg = dataset[0][1];
+    $.post("/trainDataSet", { oldMsg : current, newMsg : newMsg}, function(){
+      trainDataSet(dataset.slice(1));
+    });
+    }
+  }
+
   viewModel.submitTrainingSet = function(){
-    var data = viewModel.trainingSet();
-    $.post("/trainDataSet", { data : data});
+    var data = viewModel.trainingSet().split("\n");
+    trainDataSet(data);
   };
+
 
   var fb = new Firebase('https://flickering-fire-29z08.firebaseio.com/');
 
