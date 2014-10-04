@@ -6,6 +6,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/foundation.min.css">
   
   <!-- this is a comment in HTML -->
 
@@ -17,6 +18,8 @@
       <![endif]-->   
       <script src="/js/firebase.js"></script>  
       <script src="https://code.jquery.com/jquery.js"></script>
+      <script src='./js/foundation.min.js'></script>
+      <script src=""></script>
       <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
       <script src="/js/knockout.js"></script>
       <script src="/js/socket.io/dist/socket.io.js"></script>
@@ -30,13 +33,32 @@
 </div>
 
 <div data-bind="foreach:messages">
-  <div class="alert"  data-bind="text : message, css : {'alert-success' : score > 0, 'alert-info' : score ==0, 'alert-danger' : score < -4}">
+  <div class="row">
+    <div class="columns large-8 medium-8 small-8">
+      <div class="alert"  data-bind="text : message, css : {'alert-success' : score > 0, 'alert-info' : score ==0, 'alert-danger' : score <= -4}">
+      </div>
+    </div>
+    <div class="columns large-4 medium-4 small-4">
+      <a data-bind="click: $parent.suggestMessage" class="button success" data-reveal-id="myModal">Suggest Positive Phrase</a>
+    </div>
   </div>
 </div>
 </body>
 
 <script>
 $(document).ready(function(){
+
+  $(document).foundation();
+  var viewModel = {
+    messages : ko.observableArray([]),
+    suggestMessage: function(message) {
+      var ans = window.prompt('What would you like to replace it with?');
+      $.post('/positiveMessage', {oldMessage: message.message, message: ans}, function(data) {
+        console.log(data);
+      });
+    }
+  };
+
   var fb = new Firebase('https://flickering-fire-2908.firebaseio.com/');
 
   if(fb) {
@@ -44,23 +66,20 @@ $(document).ready(function(){
   }
 
   fb.on('child_added', function(data) {
-    var word = data.val().word;
-    console.log(data.val().word);
-    viewModel.messages.push(word);
+    var message = data.val();
+    console.log(message);
+    viewModel.messages.push(message);
   });
 
-  var viewModel = {
-    messages : ko.observableArray()
-  };
 
-$.get("/messages").done(function(data){
+/*$.get("/messages").done(function(data){
   data.forEach(function(e){
     viewModel.messages.push(e);
   })
-});
+});*/
 
-ko.applyBindings(viewModel, document.getElementById("container"));
-});
+  ko.applyBindings(viewModel, document.getElementById("container"));
+  });
 </script>
 
 
