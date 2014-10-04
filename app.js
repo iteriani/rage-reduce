@@ -89,14 +89,15 @@ app.get("/suggestMessage", function(req,res){
 	var sentiment = require('sentiment');
 	var message = req.query.message, 
 		sentimentResult = sentiment(message),
-		scoreBody = new Message({message : message, score : sentimentResult.score, tokens : sentimentResult.tokens}),
+		scoreBody = new Message({message : message,
+		 score : sentimentResult.score, tokens : sentimentResult.tokens}),
 		fbScore = {
 			message: message,
 			score: sentimentResult.score,
 			tokens: sentimentResult.tokens
 		};
 
-	sentimentResult.negative.forEach(function(e){
+	sentimentResult.tokens.forEach(function(e){
 		MessageLink.findOne({key : e}, function(err, data){
 			console.log(err, data);
 			if(data == null){
@@ -123,18 +124,42 @@ app.get("/suggestMessage", function(req,res){
 		console.log(err,res);
 	});
 
-	if(sentimentResult.score < 0) {
-		MessageFix.findOne({message: message}, function(err, fix) {
-			console.log(fix)
-			if(fix === null) {
-				res.end('censored');
+	var frequency = {};
+	sentimentResult.tokens.forEach(function(e) {
+		MessageLink.findOne({key: e}, function(err, data) {
+			if(data == null) {
+				//
 			} else {
-				res.end(fix.messageFix);
+				data.familyStrings.forEach(function(match) {
+					if(frequency[match.toLowerCase()]) {
+						frequency[match.toLowerCase()]++;
+					} else {
+						frequency[match.toLowerCase()] = 1;
+					}
+				});
 			}
 		})
-	} else {
-		res.end(req.query.message);
-	}
+	});
+
+	var highest;
+	// for(var key in frequency) {
+	// 	if(!highest || frequency[key]) {
+	// 		 = ;
+	// 	}
+	// }
+
+	// if(sentimentResult.score < 0) {
+	// 	MessageFix.findOne({message: message}, function(err, fix) {
+	// 		console.log(fix)
+	// 		if(fix == null) {
+	// 			res.end('censored');
+	// 		} else {
+	// 			res.end(fix.messageFix);
+	// 		}
+	// 	})
+	// } else {
+	// 	res.end(req.query.message);
+	// }
 });
 
 app.get("/messages", function(req,res){
@@ -145,13 +170,16 @@ app.get("/messages", function(req,res){
 
 app.post('/positiveMessage', function(req, res) {
 	console.log(req.body);
-	Messagefix.find({message: req.body.oldMessage}, function(err, data) {
+	MessageFix.find({message: req.body.oldMessage}, function(err, data) {
 		if(data.length === 0) {
-			var positiveMessage = new Messagefix
+			var positiveMessage = new MessageFix
 			({message: req.body.oldMessage, messageFix: req.body.message});
 			positiveMessage.save();
-		} 
+			res.end();
+		}else{
+			res.end();
+		}
 	});
-	res.end();
+
 });
 
