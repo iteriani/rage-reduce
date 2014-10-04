@@ -7,15 +7,22 @@
 var express = require('express');
 var http = require('http');
 var path = require('path');
-var handlebars = require('express3-handlebars')
-var passport = require("passport")
-var config = require("./config/config.js")		
-var mongoose = require("mongoose")
-var db = mongoose.connect(config.db);
+var handlebars = require('express3-handlebars');
+var passport = require("passport");
+var config = require("./config/config.js");	
+var Firebase = require('firebase');
 var fs = require("fs");
 var classes = []; 					// temporary
 var schedules = null;
 var A = true;
+var mongoose = require('mongoose');
+mongoose.connect(config.dbdev, function(err){
+    if(err){
+      console.log(err);
+    }else{
+      console.log('Connected to Mongodb.');
+    }
+  });
 
 
 
@@ -40,6 +47,12 @@ app.use(express.session());
 app.use(app.router);
 app.use(express.static(path.join(__dirname, 'public')));
 
+var fb = new Firebase('https://flickering-fire-2908.firebaseio.com/') ;
+
+if(fb) {
+	console.log('firebase connection established');
+}
+
 // development only
 if ('development' == app.get('env')) {
   app.use(express.errorHandler());
@@ -47,18 +60,21 @@ if ('development' == app.get('env')) {
 
 app.get("/", function(req,res){
 	res.render("index");
-})
+});
+
+app.get('/suggestMessage', function(req, res) {
+	var sentiment = {
+		word: 'fuck'
+	};
+
+	fb.push(sentiment, function() {
+		console.log('word added');
+	});
+});
 
 var server = http.createServer(app);
 server.listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
 });
 
-app.get('/', function(req, res) {
-	res.render('index');
-});
-app.get("/suggestMessage", function(req,res){
-	console.log(req.query.message);
-	res.end(req.query.message);
-});
 
