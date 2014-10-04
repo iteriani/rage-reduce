@@ -45,6 +45,9 @@ if ('development' == app.get('env')) {
   app.use(express.errorHandler());
 }
 
+app.get("/", function(req,res){
+	res.render("index");
+})
 
 var server = http.createServer(app);
 server.listen(app.get('port'), function(){
