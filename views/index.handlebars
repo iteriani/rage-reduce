@@ -22,7 +22,9 @@
 <div class="page-header">
   <h1>Rage Reducr <small id="typing"></small></h1>
 </div>
-
+<h3>Insert Training Set Here</h3>
+<textarea data-bind="value : trainingSet"></textarea>
+<button class="button success" data-bind="click : submitTrainingSet">Submit</button>
 <div data-bind="foreach:messages">
   <div class="row">
     <div class="columns large-8 medium-8 small-8">
@@ -51,60 +53,75 @@
     <script src="http://code.highcharts.com/highcharts.js"></script>
     <script src="/js/typed.js"></script>
 
-    <script>
-      $(document).ready(function(){
-        $(document).foundation();
+  <script>
+    $(document).ready(function(){
+      $("#typing").typed({
+        strings:["helping you give a fu"], 
+        typespeed:0,
+        callback : function(){
+          setTimeout(function(){
+          $("#typing").text("This message has been censored");
+        },500);
 
-        var dict = {};
-        $("#typing").typed({
-            strings:["helping you give a fuc"], 
-            typespeed:0,
-            callback : function(){
-              setTimeout(function(){
-                $("#typing").text("This message has been censored");
-              },500);
-
-            }
-        });
-
-        var viewModel = {
-          messages : ko.observableArray([]),
-          solution: ko.observable(dict),
-          suggestMessage: function(message) {
-            var ans = window.prompt('What would you like to replace it with?');
-            $.post('/positiveMessage', {oldMessage: message.message, message: ans}, function(data) {
-              console.log(data);
-            });
-          }
-        };
-        
-        
-        $.get('/getMessageFix', {}, function(data) {
-          for(var i = 0; i < data.length; i++) {
-              dict[data[i].message] = data[i].messageFix;
-          }
-          console.log(dict);
-        });
-
-        var fb = new Firebase('https://flickering-fire-2908.firebaseio.com/');
-
-        if(fb) {
-          console.log('connected to database');
         }
+        }
+        );
+      var dict = {};
+      $(document).foundation();
+      var viewModel = {
+        messages : ko.observableArray([]),
+        solution: ko.observable(dict),
+        trainingSet: ko.observable(''),
+        suggestMessage: function(message) {
+          var ans = window.prompt('What would you like to replace it with?');
+          $.post('/positiveMessage', {oldMessage: message.message, message: ans}, function(data) {
+            console.log(data);
+          });
+        }
+      };
 
-        fb.on('child_added', function(data) {
-          var message = data.val();
-          console.log(message);
-          var messages = viewModel.messages();
-          for(var i = 0; i < messages.length; i++){
-            if(messages[i].message == message.message){
-              return;
-            }
+      function trainDataSet(dataset){
+        if(dataset.length > 0){
+          dataset[0] = dataset[0].split(":");
+          var current = dataset[0][0];
+          var newMsg = dataset[0][1];
+        $.post("/trainDataSet", { oldMsg : current, newMsg : newMsg}, function(){
+          trainDataSet(dataset.slice(1));
+        });
+        }
+      }
+
+      viewModel.submitTrainingSet = function(){
+        var data = viewModel.trainingSet().split("\n");
+        trainDataSet(data);
+      };
+      
+      $.get('/getMessageFix', {}, function(data) {
+        for(var i = 0; i < data.length; i++) {
+            dict[data[i].message] = data[i].messageFix;
+        }
+        console.log(dict);
+      });
+
+      var fb = new Firebase('https://flickering-fire-2908.firebaseio.com/');
+
+      if(fb) {
+        console.log('connected to database');
+      }
+
+      fb.on('child_added', function(data) {
+        var message = data.val();
+        console.log(message);
+        var messages = viewModel.messages();
+        for(var i = 0; i < messages.length; i++){
+          if(messages[i].message == message.message){
+            return;
           }
-          viewModel.messages.push(message);
-        });
+        }
+        viewModel.messages.push(message);
+      });
 
-        ko.applyBindings(viewModel, document.getElementById("container"));
-        });
-    </script>
+      ko.applyBindings(viewModel, document.getElementById("container"));
+    });
+  </script>
 </html>
