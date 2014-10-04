@@ -214,6 +214,12 @@ app.get("/messages", function(req, res) {
     });
 });
 
+app.get('/getMessageFix', function(req, res) {
+	MessageFix.find({}, function(err, data) {
+		res.send(data);
+	});
+});
+
 app.post('/positiveMessage', function(req, res) {
     console.log(req.body);
     MessageFix.find({
