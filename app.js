@@ -178,7 +178,18 @@ app.get("/suggestMessage", function(req, res) {
                     }
                 });
             } else {
-                res.end(req.query.message);
+                console.log('step 1'); 
+                MessageFix.findOne({message: message}, function(err, fix){
+                        if(fix == null){
+                            console.log('step 2'); 
+                            res.end(req.query.message);
+                            return;
+                        }else{
+                            console.log('step 3'); 
+                            res.end(fix.messageFix);
+                            return;
+                        }
+                }); 
             }
         }
     });
