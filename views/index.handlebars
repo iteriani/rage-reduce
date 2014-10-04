@@ -24,33 +24,44 @@
 
     </head>
 <body class="container" id="container">
-  <div data-bind="foreach: messages">
-    <div data-bind="text: $data">
-      
-    </div>
+
+<div class="page-header">
+  <h1>Rage Reducr <small>helping you give a ****</small></h1>
+</div>
+
+<div data-bind="foreach:messages">
+  <div class="alert"  data-bind="text : message, css : {'alert-success' : score > 0, 'alert-info' : score ==0, 'alert-danger' : score < -4}">
   </div>
-
-  <script>
-    var viewModel = {
-      messages : ko.observableArray([])
-    }
-
-    ko.applyBindings(viewModel, document.getElementById("container"));
-
-    var fb = new Firebase('https://flickering-fire-2908.firebaseio.com/');
-
-    if(fb) {
-      console.log('connected to database');
-    }
-
-    fb.on('child_added', function(data) {
-      var word = data.val().word;
-      console.log(data.val().word);
-      viewModel.messages.push(word);
-    });
-  </script>
+</div>
 </body>
 
+<script>
+$(document).ready(function(){
+  var fb = new Firebase('https://flickering-fire-2908.firebaseio.com/');
+
+  if(fb) {
+    console.log('connected to database');
+  }
+
+  fb.on('child_added', function(data) {
+    var word = data.val().word;
+    console.log(data.val().word);
+    viewModel.messages.push(word);
+  });
+
+  var viewModel = {
+    messages : ko.observableArray()
+  };
+
+$.get("/messages").done(function(data){
+  data.forEach(function(e){
+    viewModel.messages.push(e);
+  })
+});
+
+ko.applyBindings(viewModel, document.getElementById("container"));
+});
+</script>
 
 
 </html>

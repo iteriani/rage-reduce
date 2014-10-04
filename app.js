@@ -12,9 +12,6 @@ var passport = require("passport");
 var config = require("./config/config.js");	
 var Firebase = require('firebase');
 var fs = require("fs");
-var classes = []; 					// temporary
-var schedules = null;
-var A = true;
 var mongoose = require('mongoose');
 mongoose.connect(config.dbdev, function(err){
     if(err){
@@ -23,13 +20,32 @@ mongoose.connect(config.dbdev, function(err){
       console.log('Connected to Mongodb.');
     }
   });
+var sentiment = require("sentiment");
+var url = "",
+Message = require("./models/message.js");
 
-
-
-// Example route
-// var user = require('./routes/user');
 
 var app = express();
+
+
+
+// development only
+if ('development' == app.get('env')) {
+	url = config.dbdev;
+  app.use(express.errorHandler());
+}else{
+	url = config.db;
+}
+
+mongoose.connect(url, function(err){
+    if(err){
+    	console.log("CANT CONNECT TO MONGODB");
+      console.log(err);
+    }else{
+      console.log('Connected to Mongodb.');
+    }
+  });
+
 
 // all environments
 app.set('port', process.env.PORT || 8000);
@@ -37,7 +53,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.engine('handlebars', handlebars());
 app.set('view engine', 'handlebars');
 app.use(express.favicon());
-app.use(express.logger('dev'));
+app.use(express.logger('dev'));	
 app.use(express.json());
 app.use(express.urlencoded());
 app.use(express.methodOverride());
@@ -62,7 +78,16 @@ app.get("/", function(req,res){
 	res.render("index");
 });
 
-app.get('/suggestMessage', function(req, res) {
+var server = http.createServer(app);
+server.listen(app.get('port'), function(){
+  console.log('Express server listening on port ' + app.get('port'));
+});
+
+app.get("/suggestMessage", function(req,res){
+	var message = req.query.message, 
+		sentimentResult = sentiment(message),
+		scoreBody = new Message({message : message, score : sentimentResult.score, tokens : sentimentResult.tokens});
+
 	var sentiment = {
 		word: 'fuck'
 	};
@@ -70,11 +95,15 @@ app.get('/suggestMessage', function(req, res) {
 	fb.push(sentiment, function() {
 		console.log('word added');
 	});
+	scoreBody.save(function(err,res){
+		console.log(err,res);
+	})
+	res.end(req.query.message);
 });
 
-var server = http.createServer(app);
-server.listen(app.get('port'), function(){
-  console.log('Express server listening on port ' + app.get('port'));
+app.get("/messages", function(req,res){
+	Message.find({}, function(err,data){
+		res.json(data);
+	});
 });
-
 
