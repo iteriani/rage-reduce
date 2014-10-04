@@ -13,6 +13,7 @@ var config = require("./config/config.js");
 var Firebase = require('firebase');
 var fs = require("fs");
 var mongoose = require('mongoose');
+
 mongoose.connect(config.dbdev, function(err){
     if(err){
       console.log(err);
@@ -22,7 +23,8 @@ mongoose.connect(config.dbdev, function(err){
   });
 var sentiment = require("sentiment");
 var url = "",
-Message = require("./models/message.js");
+Message = require("./models/message.js"),
+MessageLink = require("./models/messageLink.js");
 
 
 var app = express();
@@ -84,6 +86,7 @@ server.listen(app.get('port'), function(){
 });
 
 app.get("/suggestMessage", function(req,res){
+	var sentiment = require('sentiment');
 	var message = req.query.message, 
 		sentimentResult = sentiment(message),
 		scoreBody = new Message({message : message, score : sentimentResult.score, tokens : sentimentResult.tokens});
@@ -93,11 +96,24 @@ app.get("/suggestMessage", function(req,res){
 	};
 
 	fb.push(sentiment, function() {
-		console.log('word added');
 	});
 	scoreBody.save(function(err,res){
-		console.log(err,res);
 	})
+
+	sentimentResult.negative.forEach(function(e){
+		MessageLink.findOne({key : e}, function(err, data){
+			console.log(err, data);
+			if(data == null){
+				var msg = new MessageLink({	key : e,
+								familyStrings : [message]});
+				msg.save(function(err){console.log(err)});
+			}else{
+				data.familyStrings.push(message);
+				data.save(function(err){console.log(err)});
+			}
+		})
+	});
+
 	res.end(req.query.message);
 });
 
