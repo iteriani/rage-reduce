@@ -1,4 +1,4 @@
 module.exports = {
-	db : "mongodb://iteriani:102092Aa@troup.mongohq.com:10059/webregpro"
-	//db: "localhost:27017"
+	db : "mongodb://test:test@ds043190.mongolab.com:43190/calhacks",
+	dbdev : "localhost:27017"
 }

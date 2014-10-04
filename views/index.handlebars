@@ -23,9 +23,35 @@
 
     </head>
 <body class="container" id="container">
-HI
+
+
+<div class="page-header">
+  <h1>Rage Reducr <small>helping you give a ****</small></h1>
+</div>
+
+<div data-bind="foreach:messages">
+  <div class="alert"  data-bind="text : message, css : {'alert-success' : score > 0, 'alert-info' : score ==0, 'alert-danger' : score < -4}">
+  </div>
+</div>
+
+
 </body>
 
+<script>
+$(document).ready(function(){
+  var viewModel = {
+    messages : ko.observableArray()
+  };
+
+$.get("/messages").done(function(data){
+  data.forEach(function(e){
+    viewModel.messages.push(e);
+  })
+});
+
+ko.applyBindings(viewModel, document.getElementById("container"));
+});
+</script>
 
 
 </html>
