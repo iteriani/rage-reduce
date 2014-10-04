@@ -21,12 +21,27 @@
       <script src="/js/knockout.js"></script>
       <script src="/js/socket.io/dist/socket.io.js"></script>
       <script src="http://code.highcharts.com/highcharts.js"></script>
-
+      <script src="/js/typed.js"></script>
+<style>
+.css-typing{
+  width:30em;
+  white-space: nowrap,
+  overflow:hidden;
+  -webkit-animation:type5s steps(50,end);
+  animation:type5s steps(50,end);
+}
+@keyframes type{
+  from{width:0;}
+}
+@-webkit-keyframes type{
+  from{width:0;}
+}
+</style>
     </head>
 <body class="container" id="container">
 
 <div class="page-header">
-  <h1>Rage Reducr <small>helping you give a ****</small></h1>
+  <h1>Rage Reducr <small id="typing"></small></h1>
 </div>
 
 <div data-bind="foreach:messages">
@@ -37,17 +52,15 @@
 
 <script>
 $(document).ready(function(){
-  var fb = new Firebase('https://flickering-fire-2908.firebaseio.com/');
 
-  if(fb) {
-    console.log('connected to database');
-  }
-
-  fb.on('child_added', function(data) {
-    var word = data.val().word;
-    console.log(data.val().word);
-    viewModel.messages.push(word);
-  });
+$("#typing").typed({
+    strings:["helping you give a fu"], 
+    typespeed:0,
+    callback : function(){
+      $("#typing").text("This message has been censored");
+    }
+    }
+    );
 
   var viewModel = {
     messages : ko.observableArray()
