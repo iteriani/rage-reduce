@@ -44,16 +44,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 if ('development' == app.get('env')) {
   app.use(express.errorHandler());
 }
-//models
-require("./models/users.js");
-require("./models/classes.js");
-require("./models/schedules.js");
 
-//contorllers
-var Class = require("./controllers/classes.js");
-
-// Bootstrap routes
-require('./config/routes')(app, passport);
 
 var server = http.createServer(app);
 server.listen(app.get('port'), function(){
