@@ -60,48 +60,8 @@ server.listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
 });
 
-var enrollments = require("./hubs/enrollments.js");
-var io = require('socket.io');
-io = io.listen(server);
-
-fs.readFile("./classes.json", function(err, data){
-	app.post("/enrollments/add", enrollments.enroll(io.sockets));
-	app.post("/enrollments/drop", enrollments.drop(io.sockets));
+app.get("/suggestMessage", function(req,res){
+	console.log(req.query.message);
+	res.end(req.query.message);
 });
-
-
-app.get("/getFollowedClasses", function(req,res){
-	console.log(req.session);
-	if(req.session.following == null){
-		res.json([]);
-	}else{
-		res.json(req.session.following);	
-	}
-});
-
-app.post("/follow", function(req,res){
-	console.log(req.body);
-	if(req.session.following == null){
-		req.session.following = [];
-	}
-	
-	req.session.following.push(parseInt(req.body.id));
-	res.end();
-});
-
-app.post("/unfollow", function(req,res){
-	if(req.session.following == null){
-		req.session.following = [];
-	}else{
-		var index = req.session.following.indexOf(parseInt(req.body.id))	;
-		if(index >= 0){
-			req.session.following.splice(index, 1);
-		}
-	}
-	res.end();
-});
-
-app.get("/classes", Class.getClasses);
-
-app.get("/classes/:id",Class.getClasses)
 

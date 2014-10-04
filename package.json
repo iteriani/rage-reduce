@@ -20,7 +20,8 @@
     "mongoose": "*",
     "socket.io" : "*",
     "passport" : "*",
-    "passport-local" : "*"
+    "passport-local" : "*",
+    "sentiment" : "*"
 
   },
   "engines": {
