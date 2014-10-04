@@ -12,13 +12,6 @@ var Firebase = require('firebase');
 var fs = require("fs");
 var mongoose = require('mongoose');
 
-mongoose.connect(config.dbdev, function(err) {
-    if (err) {
-        console.log(err);
-    } else {
-        console.log('Connected to Mongodb.');
-    }
-});
 var sentiment = require("sentiment");
 var url = "",
     Message = require("./models/message.js"),
@@ -26,8 +19,6 @@ var url = "",
 MessageLink = require("./models/messageLink.js");
 
 var app = express();
-
-
 
 // development only
 if ('development' == app.get('env')) {
