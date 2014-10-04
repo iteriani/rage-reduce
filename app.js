@@ -95,8 +95,8 @@ app.get("/suggestMessage", function(req,res){
 		word: 'fuck'
 	};
 
-	fb.push(sentiment, function() {
-	});
+	//fb.push(sentiment, function() {
+	//});
 	scoreBody.save(function(err,res){
 	})
 
@@ -108,8 +108,13 @@ app.get("/suggestMessage", function(req,res){
 								familyStrings : [message]});
 				msg.save(function(err){console.log(err)});
 			}else{
-				data.familyStrings.push(message);
-				data.save(function(err){console.log(err)});
+				if(data.familyStrings
+					.map(function(e){return e.toLowerCase()})
+					.indexOf(message.toLowerCase()) < 0){
+						data.familyStrings.push(message);
+						data.save(function(err){console.log(err)});			
+				}
+
 			}
 		})
 	});
