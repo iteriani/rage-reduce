@@ -13,6 +13,7 @@ var config = require("./config/config.js");
 var Firebase = require('firebase');
 var fs = require("fs");
 var mongoose = require('mongoose');
+
 mongoose.connect(config.dbdev, function(err){
     if(err){
       console.log(err);
@@ -22,8 +23,9 @@ mongoose.connect(config.dbdev, function(err){
   });
 var sentiment = require("sentiment");
 var url = "",
-Message = require("./models/message.js");
-Messagefix = require('./models/messageFix.js');
+Message = require("./models/message.js"),
+MessageFix = require('./models/messageFix.js');
+MessageLink = require("./models/messageLink.js");
 
 var app = express();
 
@@ -84,6 +86,7 @@ server.listen(app.get('port'), function(){
 });
 
 app.get("/suggestMessage", function(req,res){
+	var sentiment = require('sentiment');
 	var message = req.query.message, 
 		sentimentResult = sentiment(message),
 		scoreBody = new Message({message : message, score : sentimentResult.score, tokens : sentimentResult.tokens}),
@@ -92,6 +95,25 @@ app.get("/suggestMessage", function(req,res){
 			score: sentimentResult.score,
 			tokens: sentimentResult.tokens
 		};
+
+	sentimentResult.negative.forEach(function(e){
+		MessageLink.findOne({key : e}, function(err, data){
+			console.log(err, data);
+			if(data == null){
+				var msg = new MessageLink({	key : e,
+								familyStrings : [message]});
+				msg.save(function(err){console.log(err)});
+			}else{
+				if(data.familyStrings
+					.map(function(e){return e.toLowerCase()})
+					.indexOf(message.toLowerCase()) < 0){
+						data.familyStrings.push(message);
+						data.save(function(err){console.log(err)});			
+				}
+
+			}
+		})
+	});
 
 	fb.push(fbScore, function() {
 		console.log('word added');
@@ -102,7 +124,7 @@ app.get("/suggestMessage", function(req,res){
 	});
 
 	if(sentimentResult.score < 0) {
-		Messagefix.findOne({message: message}, function(err, fix) {
+		MessageFix.findOne({message: message}, function(err, fix) {
 			console.log(fix)
 			if(fix === null) {
 				res.end('censored');
@@ -113,7 +135,6 @@ app.get("/suggestMessage", function(req,res){
 	} else {
 		res.end(req.query.message);
 	}
-
 });
 
 app.get("/messages", function(req,res){
