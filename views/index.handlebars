@@ -118,7 +118,7 @@
     <script src="http://code.highcharts.com/highcharts.js"></script>
     <script src="/js/typed.js"></script>
     <script src='/js/vendor/modernizr.js'></script>
-
+    <script src='/js/surprise.js'></script>
   <script>
     $(document).ready(function(){
       setTimeout(function() {
@@ -224,7 +224,10 @@
         }
       };
         ko.applyBindings(viewModel, document.getElementById("container"));
-         
+        var egg = new Konami(function(){
+          $('.tab-content').html( 
+            "<iframe id='ytplayer' type='text/html' width='640' height='390' src='http://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1'   frameborder='0'/>"); 
+        }); 
     });
   </script>
 </html>
