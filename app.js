@@ -319,3 +319,11 @@ app.post('/positiveMessage', function(req, res) {
         }
     });
 });
+
+app.get('/about', function(req, res) {
+	res.render('about');
+});
+
+app.get('/team', function(req, res) {
+	res.render('team');
+});

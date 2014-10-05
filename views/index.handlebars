@@ -2,11 +2,13 @@
 
 <html>
 <head>
-	<title>WebReg Pro by Yellow Fellows</title>	
+	<title>Rage.reduce()</title>	
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
   <link rel="stylesheet" href="css/foundation.min.css">
+  <link rel="stylesheet" href="css/perfect-scrollbar.css">
+  <link rel="stylesheet" href="css/introHCI.css">
   
   <!-- this is a comment in HTML -->
 
@@ -18,9 +20,23 @@
       <![endif]-->   
     </head>
 <body class="container" id="container">
+<nav class="top-bar fullWidth" data-topbar role="navigation">
+  <ul class="title-area">
+    <li class="name">
+      <h1><a href="/">Rage.reduce()</a></h1>
+    </li>
+  </ul>
 
+  <section class="top-bar-section">
+    <!-- Right Nav Section -->
+    <ul class="right">
+      <li><a href="/about">About</a></li>
+      <li><a href="/team">Team</a></li>
+    </ul>
+  </section>
+</nav>
 <div class="page-header">
-  <h1>Rage Reducr <small id="typing"></small></h1>
+  <h1>Rage.reduce() <small id="typing"></small></h1>
 </div>
 <h3>Insert Training Set Here</h3>
 <textarea data-bind="value : trainingSet"></textarea>
@@ -33,7 +49,9 @@
     </div>
     <div data-bind="if: ($parent.solution()[message] != null)"> 
       <div class="columns large-4 medium-4 small-4">
-          <div class="panel callout" style="width: 15em; height: 3.5em; padding-bottom: 1em;" data-bind="text: $parent.solution()[message]"></div>
+        <div id="stayinthere" style="height: 3em; height: 5em;">
+          <span style="text-overflow: ellipsis;"data-tooltip aria-haspopup="true" class="has-tip" data-bind="attr : {title : $parent.solution()[message]}, text : $parent.solution()[message].slice(0, 80)"></span>
+        </div>
       </div>
     </div>
     <div data-bind="if: ($parent.solution()[message] == null)">
@@ -52,11 +70,12 @@
     <script src="/js/socket.io/dist/socket.io.js"></script>
     <script src="http://code.highcharts.com/highcharts.js"></script>
     <script src="/js/typed.js"></script>
+    <script src='/js/vendor/modernizr.js'></script>
 
   <script>
     $(document).ready(function(){
       $("#typing").typed({
-        strings:["helping you give a fu"], 
+        strings:["helping you give a fuc"], 
         typespeed:0,
         callback : function(){
           setTimeout(function(){
@@ -74,9 +93,15 @@
         trainingSet: ko.observable(''),
         suggestMessage: function(message) {
           var ans = window.prompt('What would you like to replace it with?');
-          $.post('/positiveMessage', {oldMessage: message.message, message: ans}, function(data) {
-            console.log(data);
-          });
+          if(ans.length > 80) {
+            alert('Your proposed solution is too long! (80 letters max)');
+          } else if(ans.length == 0) {
+            alert('Please enter a solution.');
+          } else {
+            $.post('/positiveMessage', {oldMessage: message.message, message: ans}, function(data) {
+              console.log(data);
+            });
+          }
         }
       };
 
