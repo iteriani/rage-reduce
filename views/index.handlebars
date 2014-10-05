@@ -17,7 +17,30 @@
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
       <![endif]-->   
-    </head>
+    <style>
+        .typed-cursor{
+        opacity: 1;
+        -webkit-animation: blink 0.7s infinite;
+        -moz-animation: blink 0.7s infinite;
+        animation: blink 0.7s infinite;
+        }
+        @keyframes blink{
+            0% { opacity:1; }
+            50% { opacity:0; }
+            100% { opacity:1; }
+        }
+        @-webkit-keyframes blink{
+            0% { opacity:1; }
+            50% { opacity:0; }
+            100% { opacity:1; }
+        }
+        @-moz-keyframes blink{
+            0% { opacity:1; }
+            50% { opacity:0; }
+            100% { opacity:1; }
+        }
+    </style>
+</head>
 <body class="container" id="container">
 <nav class="top-bar fullWidth" data-topbar role="navigation">
   <ul class="title-area">
@@ -53,7 +76,7 @@
     <div class="columns large-8 medium-8 small-8">
       <div class="alert" data-bind="text : message, css : {'alert-success' : score > 0, 'alert-info' : score, 'alert-danger' : score <= -4}">
       </div>
-    </div>  
+    </div>      
     <div data-bind="if: $parent.solution()[message] != null && ($parent.solution()[message]() != '')"> 
       <div class="columns large-4 medium-4 small-4">
         <div id="stayinthere" style="height: 3em; height: 4em;" class="btn btn-default" disabled="disabled">
