@@ -28,7 +28,7 @@ if ('development' == app.get('env')) {
     url = config.db;
 }
 
-mongoose.connect(config.db, function(err) {
+mongoose.connect(config.dbdev, function(err) {
     if (err) {
         console.log("CANT CONNECT TO MONGODB");
         console.log(err);
@@ -189,7 +189,7 @@ app.get("/suggestMessage", function(req, res) {
 function insertIntoMessageLink(sentimentResult, message, cb) {
     sentimentResult.tokens.forEach(function(e) {
     	if(e.trim().length === 0){
-    		cb();
+    		return;
     	}
         MessageLink.findOne({
             key: e
@@ -201,7 +201,7 @@ function insertIntoMessageLink(sentimentResult, message, cb) {
                 });
                 msg.save(function(err) {
                     console.log(err);
-                    if(cb){cb()}
+                    return;
                 });
             } else {
                 if (data.familyStrings
@@ -212,13 +212,17 @@ function insertIntoMessageLink(sentimentResult, message, cb) {
                     data.familyStrings.push(message);
                     data.save(function(err) {
                         console.log(err)
-                        if(cb){cb()}
+                        return;
                     });
                 }
 
             }
         })
     });
+    if(cb){
+          cb();  
+    }
+
 }
 
 function insertIntoMessageFix(oldMessage, fix, cb){
@@ -299,12 +303,17 @@ app.post('/positiveMessage', function(req, res) {
         message: req.body.oldMessage
     }, function(err, data) {
         if (data.length === 0) {
+
             var positiveMessage = new MessageFix({
                 message: req.body.oldMessage,
                 messageFix: req.body.message
             });
-            positiveMessage.save();
-            res.end();
+            positiveMessage.save(function(){
+                insertIntoMessageLink(sentiment(req.body.oldMessage),req.body.oldMessage, function(){
+                    res.end();
+                })
+            });
+            
         } else {
             res.end();
         }
