@@ -20,7 +20,7 @@
 <body class="container" id="container">
 
 <div class="page-header">
-  <h1>Rage Reduce <small id="typing"></small></h1>
+  <h1><img width="50px" height="50px" src="http://i.imgur.com/2GCCTgb.png"/>Rage Reduce <small id="typing"></small></h1>
 </div>
 <!-- Nav tabs -->
 <ul class="nav nav-tabs" role="tablist">
@@ -55,10 +55,14 @@
   <div class="tab-pane" id="profile">
 <br>
 
-<h3>Rage Reduce is an application that gets smarter as users keep challenging it!</h3>
+<h4>Rage Reduce is an application that gets smarter as users keep challenging it! You can add more to the dictionary 
+everytime you use the desktop plugin application or on this site. </h4>
 <br>
 
-<h3>Insert Training Set Here</h3>
+<h4>Try it out here!</h4>
+<input data-bind="value : preText"></input> <button data-bind="click : sendSuggestion" class="btn btn-info">Ask Rage Reduce</button>
+
+<h4>Insert Training Set Here</h4>
 <textarea data-bind="value : trainingSet"></textarea>
 <button class="button success" data-bind="click : submitTrainingSet">Submit</button>
 </div>
@@ -91,6 +95,7 @@
       $(document).foundation();
       var viewModel = {
         messages : ko.observableArray([]),
+        preText : ko.observable(""),
         solution: ko.observable(dict),
         trainingSet: ko.observable(''),
         suggestMessage: function(message, e) {
@@ -108,6 +113,8 @@
         }
       };
 
+      viewModel.sendSuggestion = function(){
+      }
 
 
       function trainDataSet(dataset){
