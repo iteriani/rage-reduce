@@ -2,7 +2,7 @@
 
 <html>
 <head>
-	<title>Rage.reduce()</title>	
+	<title>Rage.Reduce()</title>	
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
@@ -47,7 +47,7 @@
 <div class="tab-content">
   <div class="tab-pane active" id="home">
 <br>
-<h5>People say all sorts of things in their <b>everyday</b> lives! Some of them may be normal, but a few are very hurtful. Is there a way you can improve these sentences? </h5><br>
+<h5 style="text-align:center">People say all sorts of things in their <b>everyday</b> lives! Some of them may be normal, but a few are very hurtful. </br>Is there a way you can improve these sentences? </h5><br>
 <div data-bind="foreach:messages">
   <div class="row">
     <div class="columns large-8 medium-8 small-8">
@@ -56,8 +56,8 @@
     </div>
     <div data-bind="if: $parent.solution()[message] != null && ($parent.solution()[message]() != '')"> 
       <div class="columns large-4 medium-4 small-4">
-        <div id="stayinthere" style="height: 3em; height: 5em;">
-          <span style="text-overflow: ellipsis;"data-tooltip aria-haspopup="true" class="has-tip"
+        <div id="stayinthere" style="height: 3em; height: 4em;" class="btn btn-default" disabled="disabled">
+          <span style="text-overflow: ellipsis; line-height: 3em"data-tooltip aria-haspopup="true" class="has-tip"
            data-bind="attr : {title : $parent.solution()[message]()}, text : $parent.solution()[message]().slice(0, 80)"></span>
         </div>
       </div>
@@ -73,15 +73,14 @@
   <div class="tab-pane" id="profile">
 <br>
 
-<h4>Rage Reduce is an application that gets smarter as users keep challenging it! You can add more to the dictionary 
-everytime you use the desktop plugin application or on this site. </h4>
+<h4 style="text-align: center">Rage Reduce is an application that gets smarter as users keep challenging it! <br>You can add more to the dictionary everytime you use the desktop plugin application or on this site. </h4>
 <br>
 
 <h4>Try it out here!</h4>
-<textarea data-bind="value : preText"></textarea> <button data-bind="click : sendSuggestion" class="btn btn-info">Ask Rage Reduce</button>
-
-<h4>Insert Training Set Here</h4>
-<textarea data-bind="value : trainingSet"></textarea>
+<textarea data-bind="value : preText"></textarea> 
+      <button data-bind="click : sendSuggestion" class="btn btn-info">Ask Rage Reduce</button>
+<p><h4>Insert Training Set Here</h4></p>
+    <textarea data-bind="value : trainingSet"></textarea>
 <button class="button success" data-bind="click : submitTrainingSet">Submit</button>
 </div>
 </div>
@@ -100,7 +99,7 @@ everytime you use the desktop plugin application or on this site. </h4>
   <script>
     $(document).ready(function(){
       $("#typing").typed({
-        strings:["helping you give a fuc"], 
+        strings:["helping you to give a fuc"], 
         typespeed:0,
         callback : function(){
           setTimeout(function(){
@@ -186,8 +185,7 @@ everytime you use the desktop plugin application or on this site. </h4>
 
         viewModel.messages.push(message);
       });
-        
-      ko.applyBindings(viewModel, document.getElementById("container"));
+              
         
       ko.bindingHandlers.fadeVisible = {
         init: function(element, valueAccessor) {
@@ -201,8 +199,8 @@ everytime you use the desktop plugin application or on this site. </h4>
             ko.unwrap(value) ? $(element).fadeIn() : $(element).fadeOut();
         }
       };
- 
-ko.applyBindings(new PlanetsModel());
+        ko.applyBindings(viewModel, document.getElementById("container"));
+         
     });
   </script>
 </html>
