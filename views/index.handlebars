@@ -2,7 +2,7 @@
 
 <html>
 <head>
-	<title>Rage.reduce()</title>	
+	<title>Rage.reduce( )</title>	
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
@@ -22,7 +22,7 @@
 <nav class="top-bar fullWidth" data-topbar role="navigation">
   <ul class="title-area">
     <li class="name">
-      <h1><a href="/">Rage.reduce()</a></h1>
+      <h1><a href="/">Rage.Reduce( )</a></h1>
     </li>
   </ul>
 
@@ -35,12 +35,12 @@
   </section>
 </nav>
 <div class="page-header">
-  <h1><img width="50px" height="50px" src="http://i.imgur.com/2GCCTgb.png"/>Rage.Reduce() <small id="typing"></small></h1>
+  <h1><img width="50px" height="50px" src="http://i.imgur.com/2GCCTgb.png"/>Rage.Reduce( ) <small id="typing"></small></h1>
 </div>
 <!-- Nav tabs -->
 <ul class="nav nav-tabs" role="tablist">
   <li class="active"><a href="#home" role="tab" data-toggle="tab">Judge Statements</a></li>
-  <li><a href="#profile" role="tab" data-toggle="tab">Teach Rage Reduce</a></li>
+  <li><a href="#profile" role="tab" data-toggle="tab">Teach Rage.Reduce( )</a></li>
 </ul>
 
 <!-- Tab panes -->
@@ -78,7 +78,7 @@ everytime you use the desktop plugin application or on this site. </h4>
 <br>
 
 <h4>Try it out here!</h4>
-<textarea data-bind="value : preText"></textarea> <button data-bind="click : sendSuggestion" class="btn btn-info">Ask Rage Reduce</button>
+<textarea data-bind="value : preText"></textarea> <button data-bind="click : sendSuggestion" class="btn btn-info">Ask Rage.Reduce( )</button>
 
 <h4>Insert Training Set Here</h4>
 <textarea data-bind="value : trainingSet"></textarea>
@@ -99,7 +99,8 @@ everytime you use the desktop plugin application or on this site. </h4>
 
   <script>
     $(document).ready(function(){
-      $("#typing").typed({
+      setTimeout(function() {
+        $("#typing").typed({
         strings:["helping you give a fuc"], 
         typespeed:0,
         callback : function(){
@@ -108,8 +109,8 @@ everytime you use the desktop plugin application or on this site. </h4>
         },500);
 
         }
-        }
-        );
+        });
+      }, 1000);
       var dict = {};
       $(document).foundation();
       var viewModel = {
