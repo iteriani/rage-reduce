@@ -51,9 +51,9 @@
 <div data-bind="foreach:messages">
   <div class="row">
     <div class="columns large-8 medium-8 small-8">
-      <div class="alert" data-bind="text : message, css : {'alert-success' : score > 0, 'alert-info' : score ==0, 'alert-danger' : score <= -4}">
+      <div class="alert" data-bind="text : message, css : {'alert-success' : score > 0, 'alert-info' : score, 'alert-danger' : score <= -4}">
       </div>
-    </div>
+    </div>  
     <div data-bind="if: $parent.solution()[message] != null && ($parent.solution()[message]() != '')"> 
       <div class="columns large-4 medium-4 small-4">
         <div id="stayinthere" style="height: 3em; height: 4em;" class="btn btn-default" disabled="disabled">
