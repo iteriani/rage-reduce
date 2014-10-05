@@ -28,7 +28,7 @@ if ('development' == app.get('env')) {
     url = config.db;
 }
 
-mongoose.connect(config.dbdev, function(err) {
+mongoose.connect(config.db, function(err) {
     if (err) {
         console.log("CANT CONNECT TO MONGODB");
         console.log(err);
