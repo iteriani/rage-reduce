@@ -21,8 +21,6 @@
     "passport-local": "*",
     "sentiment": "*",
     "socket.io": "*",
-    "fdb" : "*",
-    "aerospike" : "*"
   },
   "engines": {
     "node": "0.10.x"

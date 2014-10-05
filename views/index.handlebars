@@ -35,11 +35,11 @@
   </section>
 </nav>
 <div class="page-header">
-  <h1>Rage.reduce() <small id="typing"></small></h1>
+  <h1><img width="50px" height="50px" src="http://i.imgur.com/2GCCTgb.png"/>Rage.Reduce() <small id="typing"></small></h1>
 </div>
 <!-- Nav tabs -->
 <ul class="nav nav-tabs" role="tablist">
-  <li class="active"><a href="#home" role="tab" data-toggle="tab">Statements</a></li>
+  <li class="active"><a href="#home" role="tab" data-toggle="tab">Judge Statements</a></li>
   <li><a href="#profile" role="tab" data-toggle="tab">Teach Rage Reduce</a></li>
 </ul>
 
@@ -57,7 +57,8 @@
     <div data-bind="if: $parent.solution()[message] != null && ($parent.solution()[message]() != '')"> 
       <div class="columns large-4 medium-4 small-4">
         <div id="stayinthere" style="height: 3em; height: 5em;">
-          <span style="text-overflow: ellipsis;"data-tooltip aria-haspopup="true" class="has-tip" data-bind="attr : {title : $parent.solution()[message]}, text : $parent.solution()[message].slice(0, 80)"></span>
+          <span style="text-overflow: ellipsis;"data-tooltip aria-haspopup="true" class="has-tip"
+           data-bind="attr : {title : $parent.solution()[message]()}, text : $parent.solution()[message]().slice(0, 80)"></span>
         </div>
       </div>
     </div>
@@ -72,10 +73,14 @@
   <div class="tab-pane" id="profile">
 <br>
 
-<h3>Rage Reduce is an application that gets smarter as users keep challenging it!</h3>
+<h4>Rage Reduce is an application that gets smarter as users keep challenging it! You can add more to the dictionary 
+everytime you use the desktop plugin application or on this site. </h4>
 <br>
 
-<h3>Insert Training Set Here</h3>
+<h4>Try it out here!</h4>
+<textarea data-bind="value : preText"></textarea> <button data-bind="click : sendSuggestion" class="btn btn-info">Ask Rage Reduce</button>
+
+<h4>Insert Training Set Here</h4>
 <textarea data-bind="value : trainingSet"></textarea>
 <button class="button success" data-bind="click : submitTrainingSet">Submit</button>
 </div>
@@ -109,6 +114,7 @@
       $(document).foundation();
       var viewModel = {
         messages : ko.observableArray([]),
+        preText : ko.observable(""),
         solution: ko.observable(dict),
         trainingSet: ko.observable(''),
         suggestMessage: function(message, e) {
@@ -125,6 +131,12 @@
         }
       };
 
+      viewModel.sendSuggestion = function(){
+        var word = viewModel.preText();
+        $.get("/suggestMessage?message=" + word, function(e){
+          viewModel.preText(e);
+        });
+      }
 
 
       function trainDataSet(dataset){
