@@ -2,11 +2,12 @@
 
 <html>
 <head>
-	<title>WebReg Pro by Yellow Fellows</title>	
+	<title>Rage.reduce()</title>	
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
   <link rel="stylesheet" href="css/foundation.min.css">
+  <link rel="stylesheet" href="css/introHCI.css">
   
   <!-- this is a comment in HTML -->
 
@@ -18,13 +19,27 @@
       <![endif]-->   
     </head>
 <body class="container" id="container">
+<nav class="top-bar fullWidth" data-topbar role="navigation">
+  <ul class="title-area">
+    <li class="name">
+      <h1><a href="/">Rage.reduce()</a></h1>
+    </li>
+  </ul>
 
+  <section class="top-bar-section">
+    <!-- Right Nav Section -->
+    <ul class="right">
+      <li><a href="/about">About</a></li>
+      <li><a href="/team">Team</a></li>
+    </ul>
+  </section>
+</nav>
 <div class="page-header">
-  <h1><img width="50px" height="50px" src="http://i.imgur.com/2GCCTgb.png"/>Rage Reduce <small id="typing"></small></h1>
+  <h1><img width="50px" height="50px" src="http://i.imgur.com/2GCCTgb.png"/>Rage.Reduce() <small id="typing"></small></h1>
 </div>
 <!-- Nav tabs -->
 <ul class="nav nav-tabs" role="tablist">
-  <li class="active"><a href="#home" role="tab" data-toggle="tab">Statements</a></li>
+  <li class="active"><a href="#home" role="tab" data-toggle="tab">Judge Statements</a></li>
   <li><a href="#profile" role="tab" data-toggle="tab">Teach Rage Reduce</a></li>
 </ul>
 
@@ -41,7 +56,10 @@
     </div>
     <div data-bind="if: $parent.solution()[message] != null && ($parent.solution()[message]() != '')"> 
       <div class="columns large-4 medium-4 small-4">
-          <div class="panel callout" style="width: 15em; height: 3.5em; padding-bottom: 1em;" data-bind="text: $parent.solution()[message]"></div>
+        <div id="stayinthere" style="height: 3em; height: 5em;">
+          <span style="text-overflow: ellipsis;"data-tooltip aria-haspopup="true" class="has-tip"
+           data-bind="attr : {title : $parent.solution()[message]()}, text : $parent.solution()[message]().slice(0, 80)"></span>
+        </div>
       </div>
     </div>
     <div data-bind="if: $parent.solution()[message] == null || ($parent.solution()[message]() == '')" >
@@ -60,7 +78,7 @@ everytime you use the desktop plugin application or on this site. </h4>
 <br>
 
 <h4>Try it out here!</h4>
-<input data-bind="value : preText"></input> <button data-bind="click : sendSuggestion" class="btn btn-info">Ask Rage Reduce</button>
+<textarea data-bind="value : preText"></textarea> <button data-bind="click : sendSuggestion" class="btn btn-info">Ask Rage Reduce</button>
 
 <h4>Insert Training Set Here</h4>
 <textarea data-bind="value : trainingSet"></textarea>
@@ -77,11 +95,12 @@ everytime you use the desktop plugin application or on this site. </h4>
     <script src="/js/socket.io/dist/socket.io.js"></script>
     <script src="http://code.highcharts.com/highcharts.js"></script>
     <script src="/js/typed.js"></script>
+    <script src='/js/vendor/modernizr.js'></script>
 
   <script>
     $(document).ready(function(){
       $("#typing").typed({
-        strings:["helping you give a fu"], 
+        strings:["helping you give a fuc"], 
         typespeed:0,
         callback : function(){
           setTimeout(function(){
@@ -106,14 +125,17 @@ everytime you use the desktop plugin application or on this site. </h4>
                 $(e.currentTarget).fadeOut(function(){
                   console.log("HI")
                 });
-            viewModel.solution()[message.message](ans);
-          });        
+              viewModel.solution()[message.message](ans);
+            });        
           }
-
         }
       };
 
       viewModel.sendSuggestion = function(){
+        var word = viewModel.preText();
+        $.get("/suggestMessage?message=" + word, function(e){
+          viewModel.preText(e);
+        });
       }
 
 
