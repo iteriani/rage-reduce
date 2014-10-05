@@ -2,7 +2,7 @@
 
 In today's online world, it is ever so important to have a respectable online presence. We've all heard of those people. Even though they seem to be well mannered in real life, they tend to make horrible decisions on the internet, saying things that rub others the wrong way. This is prevalent on all forms of social media such as Facebook, Twitter, or Tumblr. 
 
-###For some reason, the prospect of anonymity on the internet tends to lead people into saying  offensive comments that they might not otherwise! 
+###For some reason, the illusion of anonymity on the internet tends to lead people into saying some really hurtful or stupid comments that can ruin their reputation.
 
 ###Let's fix that.
 
