@@ -7,7 +7,6 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
   <link rel="stylesheet" href="css/foundation.min.css">
-  <link rel="stylesheet" href="css/perfect-scrollbar.css">
   <link rel="stylesheet" href="css/introHCI.css">
   
   <!-- this is a comment in HTML -->
@@ -38,29 +37,50 @@
 <div class="page-header">
   <h1>Rage.reduce() <small id="typing"></small></h1>
 </div>
-<h3>Insert Training Set Here</h3>
-<textarea data-bind="value : trainingSet"></textarea>
-<button class="button success" data-bind="click : submitTrainingSet">Submit</button>
+<!-- Nav tabs -->
+<ul class="nav nav-tabs" role="tablist">
+  <li class="active"><a href="#home" role="tab" data-toggle="tab">Statements</a></li>
+  <li><a href="#profile" role="tab" data-toggle="tab">Teach Rage Reduce</a></li>
+</ul>
+
+<!-- Tab panes -->
+<div class="tab-content">
+  <div class="tab-pane active" id="home">
+<br>
+<h5>People say all sorts of things <b>everyday</b> lives! Some of them may be normal, but a few are very hurtful. Is there a way you can improve these sentences? </h5><br>
 <div data-bind="foreach:messages">
   <div class="row">
     <div class="columns large-8 medium-8 small-8">
       <div class="alert" data-bind="text : message, css : {'alert-success' : score > 0, 'alert-info' : score ==0, 'alert-danger' : score <= -4}">
       </div>
     </div>
-    <div data-bind="if: ($parent.solution()[message] != null)"> 
+    <div data-bind="if: $parent.solution()[message] != null && ($parent.solution()[message]() != '')"> 
       <div class="columns large-4 medium-4 small-4">
         <div id="stayinthere" style="height: 3em; height: 5em;">
           <span style="text-overflow: ellipsis;"data-tooltip aria-haspopup="true" class="has-tip" data-bind="attr : {title : $parent.solution()[message]}, text : $parent.solution()[message].slice(0, 80)"></span>
         </div>
       </div>
     </div>
-    <div data-bind="if: ($parent.solution()[message] == null)">
+    <div data-bind="if: $parent.solution()[message] == null || ($parent.solution()[message]() == '')" >
       <div class="columns large-4 medium-4 small-4">
-        <a data-bind="click: $parent.suggestMessage" class="button success" data-reveal-id="myModal">Suggest Positive Phrase</a>
+        <a data-bind="click: $parent.suggestMessage" class="button success" data-reveal-id="myModal">Improve this Phrase</a>
       </div>
     </div>
   </div>
 </div>
+  </div>
+  <div class="tab-pane" id="profile">
+<br>
+
+<h3>Rage Reduce is an application that gets smarter as users keep challenging it!</h3>
+<br>
+
+<h3>Insert Training Set Here</h3>
+<textarea data-bind="value : trainingSet"></textarea>
+<button class="button success" data-bind="click : submitTrainingSet">Submit</button>
+</div>
+</div>
+
 </body>
     <script src="/js/firebase.js"></script>  
     <script src="https://code.jquery.com/jquery.js"></script>
@@ -91,19 +111,21 @@
         messages : ko.observableArray([]),
         solution: ko.observable(dict),
         trainingSet: ko.observable(''),
-        suggestMessage: function(message) {
+        suggestMessage: function(message, e) {
+          $(e.currentTarget).slideDown();
           var ans = window.prompt('What would you like to replace it with?');
-          if(ans.length > 80) {
-            alert('Your proposed solution is too long! (80 letters max)');
-          } else if(ans.length == 0) {
-            alert('Please enter a solution.');
-          } else {
-            $.post('/positiveMessage', {oldMessage: message.message, message: ans}, function(data) {
-              console.log(data);
-            });
+          if(ans){
+              $.post('/positiveMessage', {oldMessage: message.message, message: ans}, function(data) {
+                $(e.currentTarget).fadeOut(function(){
+                  console.log("HI")
+                });
+              viewModel.solution()[message.message](ans);
+            });        
           }
         }
       };
+
+
 
       function trainDataSet(dataset){
         if(dataset.length > 0){
@@ -113,6 +135,8 @@
         $.post("/trainDataSet", { oldMsg : current, newMsg : newMsg}, function(){
           trainDataSet(dataset.slice(1));
         });
+        }else{
+          alert("Training set complete!")
         }
       }
 
@@ -122,10 +146,11 @@
       };
       
       $.get('/getMessageFix', {}, function(data) {
+        var dict = {};
         for(var i = 0; i < data.length; i++) {
-            dict[data[i].message] = data[i].messageFix;
+            dict[data[i].message] = ko.observable(data[i].messageFix);
         }
-        console.log(dict);
+        viewModel.solution(dict);
       });
 
       var fb = new Firebase('https://flickering-fire-2908.firebaseio.com/');
@@ -143,6 +168,10 @@
             return;
           }
         }
+        if(viewModel.solution()[message.message] == null){
+        viewModel.solution()[message.message] = ko.observable("");          
+        }
+
         viewModel.messages.push(message);
       });
 
