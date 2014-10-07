@@ -9,3 +9,5 @@ In today's online world, it is ever so important to have a respectable online pr
 Using machine learning techniques that leverage sentiment analysis, string token aggregation, and crowd funded definitions, we take the negative statements that you might say and turn them into positive ones. And if we can't, we'll stop you and give you a chance to think about what you really want to say. 
 
 The result is amazing. You don't have to be afraid to hold back anymore. You'll have the freedom to be yourself anywhere you go and when you go too far, Rage.reduce() will be at your side. 
+
+To Install -- Download Autohotkey and the autohotkey script in this repository. Turn on the autohotkey script and the app is on!
