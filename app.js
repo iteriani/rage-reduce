@@ -77,7 +77,8 @@ server.listen(app.get('port'), function() {
 app.get("/suggestMessage", function(req, res) {
     if(req.query.message.trim().length === 0){
     	res.end(req.query.message);
-    }
+    	return;
+	}
     var sentiment = require('sentiment');
     var message = req.query.message,
         sentimentResult = sentiment(message),
