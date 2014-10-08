@@ -65,7 +65,7 @@ Enter::
     }
     badWords:=clipboard
     ;msgbox % UrlDownloadToVar("http://localhost:8000/suggestMessage?message=" . badWords)
-    clipboard:= UrlDownloadToVar("http://localhost:8000/suggestMessage?message=" . badWords)
+    clipboard:= UrlDownloadToVar("http://ragereducer.herokuapp.com/suggestMessage?message=" . badWords)
     ;clipboard:= RegExReplace(clipboard, "(?<=[^/r/n/t ][^/r/n])/R(?=[^/r/n][^/r/n/t ])", "")
     StringTrimRight, clipboard, clipboard, 3    
     Send {HOME}+{END}{DEL}^v{Enter}
