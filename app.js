@@ -75,6 +75,9 @@ server.listen(app.get('port'), function() {
 });
 
 app.get("/suggestMessage", function(req, res) {
+    if(req.query.message.trim().length === 0){
+    	res.end(req.query.message);
+    }
     var sentiment = require('sentiment');
     var message = req.query.message,
         sentimentResult = sentiment(message),
@@ -89,9 +92,6 @@ app.get("/suggestMessage", function(req, res) {
             tokens: sentimentResult.tokens
         };
 
-    if(message.trim().length ===0){
-    	res.end(message);
-    }
 
     fb.push(fbScore, function() {});
 
