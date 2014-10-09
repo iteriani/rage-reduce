@@ -20,7 +20,8 @@
     "passport": "*",
     "passport-local": "*",
     "sentiment": "*",
-    "socket.io": "*"
+    "socket.io": "*",
+    "aerospike" : "*"
   },
   "engines": {
     "node": "0.10.x"
