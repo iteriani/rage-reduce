@@ -70,6 +70,7 @@
 <div class="tab-content">
   <div class="tab-pane active" id="home">
 <br>
+<img src="http://s3-media1.fl.yelpcdn.com/bphoto/kCvHDhlXGOfSdy8X-mYWKg/ms.jpg"/>
 <h5 style="text-align:center">People say all sorts of things in their <b>everyday</b> lives! Some of them may be normal, but a few are very hurtful. </br>Is there a way you can improve these sentences? </h5><br>
 <div data-bind="foreach:messages">
   <div class="row">
@@ -197,7 +198,6 @@
 
       fb.on('child_added', function(data) {
         var message = data.val();
-        console.log(message);
         var messages = viewModel.messages();
         for(var i = 0; i < messages.length; i++){
           if(messages[i].message == message.message){

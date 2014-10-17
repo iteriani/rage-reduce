@@ -21,7 +21,11 @@
     "passport-local": "*",
     "sentiment": "*",
     "socket.io": "*",
-    "aerospike" : "*"
+    "aerospike" : "*",
+    "yelp" : "*",
+    "request" : "*",
+    "crawler" : "*",
+    "jsdom" : "*"
   },
   "engines": {
     "node": "0.10.x"
