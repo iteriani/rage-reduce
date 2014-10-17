@@ -21,7 +21,6 @@
     "passport-local": "*",
     "sentiment": "*",
     "socket.io": "*",
-    "aerospike" : "*",
     "yelp" : "*",
     "request" : "*",
     "crawler" : "*",
